@@ -1,0 +1,375 @@
+@import "~bootstrap/scss/bootstrap";
+@import "./utils.scss";
+
+body {
+    background-color: #001021;
+}
+
+hr {
+	background-color: white;
+	width: 100%;
+}
+
+.btn-primary {
+	background-color: #335DBF;
+	border-color: #335DBF;
+}
+
+@media (max-width: 600px){
+	.navbar-brand {
+		margin-top: 1rem;
+		padding-left: 1px;
+	}
+}
+
+.main-layout-col {
+    padding: 0px;
+}
+
+.footer-col {
+    padding: 0px;
+}
+
+.wider-container {
+    max-width: 1500px;
+}
+
+.top-main-filler {
+    background-color: #001021;
+		min-height: 50rem;
+		text-align: center;
+}
+
+.top-main-filler .row {
+	height: 100%;
+	padding: 1rem;
+}
+
+
+@media (min-width: 1200px){
+
+	.carousel-container {
+		min-height: 50rem;
+	}
+}
+
+.main-filler-card {
+	height: 100%;
+	background-color: #001021;
+	color: white;
+}
+
+@media (min-width: 1200px) {
+	.main-filler-card .card-title{
+		font-size: 50px;
+	}
+}
+
+.home-jumbotron {
+	padding-top: 5rem;
+	min-height: 40rem;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.1);
+	// background-size: cover;
+	// background-repeat: no-repeat;
+	// background-size: contain;
+	// background-position: center;
+	text-align: center;
+	//height: 50rem;
+}
+
+#jumbotron-video {
+	padding-top: 3rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	overflow: hidden;
+	z-index: -100;
+	width: 100%;
+	height: 100%
+}
+.jumbotron-container {
+	//z-index: -101;
+}
+
+@media (min-width: 1200px) {
+	.home-jumbotron{
+		margin-top: 3rem;
+		min-height: 900px;
+		max-height: 900px;
+	}
+	.jumbotron-container {
+		height: 100%;
+		padding-bottom: 1rem;
+	}
+}
+
+@media (max-width: 600px) {
+	.home-jumbotron{
+		display: none;
+	}
+}
+
+.jumbotron-container {
+		background-color: black;
+		background-size: (cover !important);
+		background-repeat: (repeat !important);
+		background-size: (inherit !important);
+		opacity: 0.8;
+		padding: 1rem;
+		color: white;
+}
+
+.jumbotron {
+	margin-bottom: 0px;
+}
+
+
+.jumbotron-row .col {
+    padding: 0px;
+    margin: 20px;
+}
+
+.jumbotron-row {
+  //margin: 0px;
+}
+
+@media (min-width: 1200px) {
+	.jumbotron-row{
+		padding-top: 1rem;
+	}
+}
+
+.services-section {
+	padding: 2rem;
+	text-align: center;
+}
+
+.footer {
+    background-color: #335DBF;
+    min-height: 15rem;
+    text-align: center;
+}
+
+.footer-author {
+    text-align: center;
+    min-width: 2rem;
+}
+
+.footer .col {
+    padding-top: 2rem;
+}
+
+.floating-card {
+    padding: 3rem;
+}
+
+@media (min-width: 1200px) {
+	.floating-card{
+			min-height: 30rem;
+			margin-top: -12rem;
+	}
+}
+
+@media (max-width: 600px){
+	.floating-card{
+		min-height: 30rem;
+		margin-bottom: 5px;
+	}
+	.floating-card{
+		margin-top: -2rem;
+		margin-bottom: 2.5rem;
+	}
+}
+
+.saga-card {
+    -webkit-box-shadow: 1px -3px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px -3px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 1px -3px 10px 0px rgba(0,0,0,0.75)
+}
+
+.second-info-section {
+    text-align: center;
+    min-width: 12rem;
+}
+
+.second-info-section h2{
+    color: white;
+}
+
+.second-info-section p{
+    color: white;
+}
+
+.second-info-section-card {
+    background-color: #001021;
+    color: white;
+		border: 2px solid white;
+		padding: auto;
+}
+
+@media (min-width: 1200px) {
+	.second-info-section-card{
+		min-height: 25rem;
+	}
+}
+
+.card-row {
+    background-color: #545E75;
+		padding-bottom: 1rem;
+		text-align: center;
+}
+
+.ida-detailing-promo{
+	max-height: 15rem;
+	min-height: 15rem;
+	background-color: white;
+	text-align: center;
+}
+
+.ida-detailing-promo .container{
+
+}
+
+.after-cards-section {
+  min-height: 20rem;
+	background-color: #001021;
+}
+
+@media (max-width: 900px) {
+.after-cards-section {
+	padding-bottom: 3rem;
+	}
+}
+
+.about-us-section .row {
+    height: 100%;
+}
+
+@media (min-width: 1200px) {
+	.after-cards-section{
+		min-height: 60rem;
+	}
+}
+
+.about-us-section-header {
+	text-align: center;
+	color: white;
+	padding: 3rem;
+}
+
+
+@media (min-width: 1200px){
+	.about-us-section-header h1{
+		font-size: 75px;
+	}	
+}
+
+
+.after-jumbo-filler {
+    min-height: 20rem;
+		background-color: #E12E2E;
+		text-align: center;
+		padding: 2rem;
+		color: white;
+}
+
+@media (max-width: 600px){
+	.after-jumbo-filler {
+		min-height: 10rem;
+	}
+}
+
+.footer-nav a {
+    color: white;
+}
+
+// Contact Us
+
+.contact-us-form-container {
+	padding-top: 5rem;
+	padding-bottom: 2rem;
+	color: white;
+	text-align: center;
+}
+
+.contact-us-form-container .jumbotron {
+	color: black;
+	text-align: center;
+}
+
+@media (max-width: 600px){
+	.contact-us-form-container{ 
+		padding-top: 8.5rem; 
+	}
+}
+.above-form-info {
+	padding-bottom: 1rem;
+}
+
+.car-info-form-header {
+	padding: .5rem;
+}
+
+.form-toast {
+	color: black;
+	border: 6px solid green;
+	margin-top: 3rem;
+}
+
+// About Page
+
+.about-page-container {
+	padding-top: 1rem;
+	background-color: #545E75;
+	color: white;
+}
+
+.about-page-container .kg-image {
+	width: 100%;
+}
+
+.about-page-header-container{
+	padding-top: 5rem;
+	text-align: center;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+@media (max-width: 600px){
+	.about-page-container .kg-image {
+		width: 100%;
+		padding-top: 8rem;
+	}
+
+	.about-page-header-container{
+		padding-top: 8.5rem;
+	}
+}
+
+// Services Page
+
+.services-container{
+	padding-top: 5rem;
+	text-align: center;
+}
+
+.services-container .card-text{
+	text-align: left;
+}
+
+.services-container .services-card{
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+}
+@media (max-width: 600px){
+	.services-container{
+		padding-top: 9rem;
+	}
+}
+
+.markdown-table table {
+	@extend .table, .table-bordered, .table-hover;
+}
