@@ -22,7 +22,7 @@ export default class InteriorServices extends React.Component {
                 >
                     <span
                         className={'header'}
-                    >Exterior Services
+                    >Interior Services
                     </span>
                 </div>
 
@@ -31,16 +31,19 @@ export default class InteriorServices extends React.Component {
                     <div className={'holder'}>
                         <div className={'slice'}>
                             <div className={'level level1'}>
-                                <span className={'levelText'}>Level </span>
+                                <span className={'levelText'}>Tier </span>
                                 <img src={icon1}/>
 
                             </div>
                             <ul>
-                                <li>Complete Exterior Cleaning</li>
-                                <li>Decontamination</li>
-                                <li>Wheel Cleaning</li>
-                                <li>Tire Cleaning</li>
-                                <li>Protective Coating</li>
+                                <li>Trash removed from vehicle</li>
+                                <li>Light vacuum of seats and carpets</li>
+                                <li>Clean vents</li>
+                                <li>All touch surfaces cleaned & Sanitized</li>
+                                <li>Steering wheel, Center console, door, seats dash</li>
+                                <li>Leather Seats cleaned lightly</li>
+                                <li>UV Protection applied</li>
+                                <li>Dash, door panels, seats</li>
                             </ul>
                             <div className={'youtubeHolder'}>
                                 <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
@@ -51,67 +54,18 @@ export default class InteriorServices extends React.Component {
                         </div>
                         <div className={'slice'}>
                             <div className={'level level2'}>
-                                <span className={'levelText'}>Level </span>
+                                <span className={'levelText'}>Tier </span>
                                 <img src={icon2}/>
 
                             </div>
                             <ul>
                                 <li className={'includes'}>
                                         <span className={'includesHolder'}>
-                                            <span className={'includeText'}>INCLUDES LEVEL</span>
+                                            <span className={'includeText'}>INCLUDES TIER</span>
                                             <span className={'imgHolder'}><img src={icon1}/> </span>
                                         </span>
                                 </li>
-                                <li>Paint Decontamination Package</li>
-                                <li>High End Sealant</li>
-                            </ul>
-                            <div className={'youtubeHolder'}>
-                                <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen/>
-                            </div>
-                        </div>
-                        <div className={'slice'}>
-                            <div className={'level level3'}>
-                                <span className={'levelText'}>Level </span>
-                                <img src={icon3}/>
-                            </div>
-                            <ul>
-                                <li className={'includes'}>
-                                        <span className={'includesHolder'}>
-                                            <span className={'includeText'}>INCLUDES LEVEL</span>
-                                            <span className={'imgHolder'}><img src={icon2}/> </span>
-                                        </span>
-                                </li>
-                                <li>One Step Paint Correction</li>
-                                <li>Complete Trim Package</li>
-                                <li>Glass Sealant</li>
-                            </ul>
-                            <div className={'youtubeHolder'}>
-                                <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen/>
-                            </div>
-                        </div>
-                        <div className={'slice'}>
-                            <div className={'level level4'}>
-                                <span className={'levelText'}>Level </span>
-                                <img src={icon4}/>
-
-                            </div>
-                            <ul>
-                                <li className={'includes'}>
-                                        <span className={'includesHolder'}>
-                                            <span className={'includeText'}>INCLUDES LEVEL</span>
-                                            <span className={'imgHolder'}><img src={icon3}/> </span>
-                                        </span>
-                                </li>
-                                <li>Engine Bay Cleaning Package</li>
-                                <li>Ceramic Coating Package</li>
-                                <li>Full Paint Correction</li>
-                                <li>Metal Polish</li>
+                                <li>Deep Cleaning of all surfaces</li>
                             </ul>
                             <div className={'youtubeHolder'}>
                                 <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
