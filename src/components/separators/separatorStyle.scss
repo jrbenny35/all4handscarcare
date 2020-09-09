@@ -217,7 +217,9 @@
 
     display: flex;
     flex-direction: column;
-
+    @media screen and (min-width: 2000px) {
+      background-attachment: initial;
+    }
     #slogan {
       display: flex;
       justify-content: center;
@@ -248,7 +250,9 @@
     background-position: center;
     display: flex;
     flex-direction: column;
-
+    @media screen and (max-width: 800px) {
+      background-attachment: initial;
+    }
     .headerHolder {
       border-color: #d35635;
 
