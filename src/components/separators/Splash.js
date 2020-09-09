@@ -13,7 +13,7 @@ export default class BigBoiSeperator extends React.Component {
             <div
                 id={'splash'}
                 className="separator">
-                <img className={'logo'}
+                <img alt={'logo'} className={'logo'}
                     src={logoImg} />
                     <div id={'slogan'}>When two hands aren't enough.</div>
             </div>

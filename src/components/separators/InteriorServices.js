@@ -1,8 +1,6 @@
 import React from 'react';
 import icon1 from '../../icons/level1.png';
 import icon2 from '../../icons/level2.png';
-import icon3 from '../../icons/level3.png';
-import icon4 from '../../icons/level4.png';
 
 export default class InteriorServices extends React.Component {
     constructor(props) {
@@ -33,10 +31,11 @@ export default class InteriorServices extends React.Component {
                             <div className={'level level1'}>
                                 <div className={'levelTextAndIconHolder'}>
                                     <span className={'levelText'}>Tier </span>
-                                    <img src={icon1}/>
+                                    <img alt={'tier 1 icon'} src={icon1}/>
                                 </div>
                                 <div className={'headerSubtitle'}>
-                                    &#8226; Because of our attention to detail, this tier will suffice for the <span className={'subtitleEmphasis'}>vast</span> of situations &#8226;
+                                    &#8226; Because of our attention to detail, this tier will suffice for the <span
+                                    className={'subtitleEmphasis'}>vast</span> of situations &#8226;
                                 </div>
                             </div>
                             <div id={'tier1ULHolder'}>
@@ -57,21 +56,24 @@ export default class InteriorServices extends React.Component {
                                     <li>Dash, door panels, seats</li>
                                 </ul>
                             </div>
-                            <div className={'special'}>Special Attention paid to:</div>
-                            <ul className={'specialUL'}>
-                                <ul>
-                                    <li>Steering wheel</li>
-                                    <li>Center Console</li>
-                                    <li>Doors</li>
+                            <div className={'specialHolder'}>
+                                <div className={'special'}>Special Attention paid to:</div>
+                                <ul className={'specialUL'}>
+                                    <ul>
+                                        <li>Steering wheel</li>
+                                        <li>Center Console</li>
+                                        <li>Doors</li>
+                                    </ul>
+                                    <ul>
+                                        <li>Seats</li>
+                                        <li>Dashboard</li>
+                                        <li>Touch Surfaces</li>
+                                    </ul>
                                 </ul>
-                                <ul>
-                                    <li>Seats</li>
-                                    <li>Dashboard</li>
-                                    <li>Touch Surfaces</li>
-                                </ul>
-                            </ul>
+                            </div>
                             <div className={'youtubeHolder'}>
                                 <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
+                                        title={'vid 2int'}
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen/>
@@ -81,24 +83,28 @@ export default class InteriorServices extends React.Component {
                             <div className={'level level2'}>
                                 <div className={'levelTextAndIconHolder'}>
                                     <span className={'levelText'}>Tier </span>
-                                    <img src={icon2}/>
+                                    <img alt={'tier 2 icon'} src={icon2}/>
                                 </div>
                                 <div className={'headerSubtitle'}>
-                                    &#8226; This is for those <span className={'subtitleEmphasis'}>serious</span> messes where special attention is needed. &#8226;
+                                    &#8226; This is for those <span
+                                    className={'subtitleEmphasis'}>serious</span> situations
+                                    where special attention is needed &#8226;
                                 </div>
                             </div>
 
                             <ul>
-                                <li className={'includes'}>
-                                        <span className={'includesHolder'}>
-                                            <span className={'includeText'}>INCLUDES TIER</span>
-                                            <span className={'imgHolder'}><img src={icon1}/> </span>
+
+                                <li
+                                className={'includes'}>
+                                    Deep clean version of services provided in <span className={'includesHolder'}>
+                                            <span className={'includeText'}> Tier</span>
+                                            <span className={'imgHolder'}><img alt={'tier 1 icon'} src={icon1}/> </span>
                                         </span>
                                 </li>
-                                <li>Deep clean version of services provided in Tier 1</li>
                             </ul>
                             <div className={'youtubeHolder'}>
                                 <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
+                                        title={'vid 1int'}
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen/>
