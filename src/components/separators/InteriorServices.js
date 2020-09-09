@@ -15,7 +15,7 @@ export default class InteriorServices extends React.Component {
         return (
             <div
                 id={'interiorServicesSection'}
-                className="separator"
+                className="separator services"
             >
                 <div
                     className={'headerHolder'}
@@ -31,19 +31,44 @@ export default class InteriorServices extends React.Component {
                     <div className={'holder'}>
                         <div className={'slice'}>
                             <div className={'level level1'}>
-                                <span className={'levelText'}>Tier </span>
-                                <img src={icon1}/>
-
+                                <div className={'levelTextAndIconHolder'}>
+                                    <span className={'levelText'}>Tier </span>
+                                    <img src={icon1}/>
+                                </div>
+                                <div className={'headerSubtitle'}>
+                                    &#8226; Because of our attention to detail, this tier will suffice for the <span className={'subtitleEmphasis'}>vast</span> of situations &#8226;
+                                </div>
                             </div>
-                            <ul>
-                                <li>Trash removed from vehicle</li>
-                                <li>Light vacuum of seats and carpets</li>
-                                <li>Clean vents</li>
-                                <li>All touch surfaces cleaned & Sanitized</li>
-                                <li>Steering wheel, Center console, door, seats dash</li>
-                                <li>Leather Seats cleaned lightly</li>
-                                <li>UV Protection applied</li>
-                                <li>Dash, door panels, seats</li>
+                            <div id={'tier1ULHolder'}>
+                                <ul>
+                                    <li>Trash removed from vehicle</li>
+                                    <li>Vacuum of seats and carpets</li>
+                                    <li>Cleaning of vents</li>
+                                    {/*<li>Interactive/Touch Surfaces</li>*/}
+                                    {/*<ul>*/}
+                                    {/*    <li>Thoroughly Cleaned</li>*/}
+                                    {/*    <li>Sanitized</li>*/}
+                                    {/*</ul>*/}
+
+                                </ul>
+                                <ul>
+                                    <li>Leather Seats cleaned lightly</li>
+                                    <li>UV Protection applied</li>
+                                    <li>Dash, door panels, seats</li>
+                                </ul>
+                            </div>
+                            <div className={'special'}>Special Attention paid to:</div>
+                            <ul className={'specialUL'}>
+                                <ul>
+                                    <li>Steering wheel</li>
+                                    <li>Center Console</li>
+                                    <li>Doors</li>
+                                </ul>
+                                <ul>
+                                    <li>Seats</li>
+                                    <li>Dashboard</li>
+                                    <li>Touch Surfaces</li>
+                                </ul>
                             </ul>
                             <div className={'youtubeHolder'}>
                                 <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
@@ -52,12 +77,17 @@ export default class InteriorServices extends React.Component {
                                         allowFullScreen/>
                             </div>
                         </div>
-                        <div className={'slice'}>
+                        <div className={'slice interiorTier2'}>
                             <div className={'level level2'}>
-                                <span className={'levelText'}>Tier </span>
-                                <img src={icon2}/>
-
+                                <div className={'levelTextAndIconHolder'}>
+                                    <span className={'levelText'}>Tier </span>
+                                    <img src={icon2}/>
+                                </div>
+                                <div className={'headerSubtitle'}>
+                                    &#8226; This is for those <span className={'subtitleEmphasis'}>serious</span> messes where special attention is needed. &#8226;
+                                </div>
                             </div>
+
                             <ul>
                                 <li className={'includes'}>
                                         <span className={'includesHolder'}>
@@ -65,7 +95,7 @@ export default class InteriorServices extends React.Component {
                                             <span className={'imgHolder'}><img src={icon1}/> </span>
                                         </span>
                                 </li>
-                                <li>Deep Cleaning of all surfaces</li>
+                                <li>Deep clean version of services provided in Tier 1</li>
                             </ul>
                             <div className={'youtubeHolder'}>
                                 <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"

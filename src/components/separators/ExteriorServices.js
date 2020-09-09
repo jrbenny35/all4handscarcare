@@ -15,7 +15,7 @@ export default class ExteriorServices extends React.Component {
         return (
             <div
                 id={'exteriorServicesSection'}
-                className="separator"
+                className="separator services"
             >
                 <div
                     className={'headerHolder'}
