@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import {FixedNavMenu} from './components/fixedNavMenu/';
 import './components/separators';
-import {About, Contact, ExteriorServices, Splash, Blog} from "./components/separators";
+import {About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/separators";
 
 export default class App extends React.Component {
     constructor(props) {
@@ -25,6 +25,7 @@ export default class App extends React.Component {
                 }
                 <Splash/>
                 <ExteriorServices/>
+                <InteriorServices/>
                 <Contact/>
                 <About/>
                 <Blog/>

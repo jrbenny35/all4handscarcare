@@ -4,7 +4,7 @@ import icon2 from '../../icons/level2.png';
 import icon3 from '../../icons/level3.png';
 import icon4 from '../../icons/level4.png';
 
-export default class ExteriorServices extends React.Component {
+export default class InteriorServices extends React.Component {
     constructor(props) {
         super(props);
         this.state = {current: this.props.current};
@@ -14,7 +14,7 @@ export default class ExteriorServices extends React.Component {
 
         return (
             <div
-                id={'exteriorServicesSection'}
+                id={'interiorServicesSection'}
                 className="separator"
             >
                 <div
