@@ -34,8 +34,8 @@ export default class InteriorServices extends React.Component {
                                     <img alt={'tier 1 icon'} src={icon1}/>
                                 </div>
                                 <div className={'headerSubtitle'}>
-                                    &#8226; Because of our attention to detail, this tier will suffice for the <span
-                                    className={'subtitleEmphasis'}>vast</span> of situations &#8226;
+                                    &#8226; Because of our attention to detail, this tier will suffice for <span
+                                    className={'subtitleEmphasis'}>most</span> situations &#8226;
                                 </div>
                             </div>
                             <div id={'tier1ULHolder'}>

@@ -8,8 +8,16 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            navOpen: true
+            navOpen: true,
+            isIOS: false
         }
+    }
+
+    componentWillMount() {
+        let isIOS = /iPad|iPhone|iPod/.test(navigator.platform)
+            || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+
+        this.setState();
     }
 
     render() {
@@ -26,13 +34,11 @@ export default class App extends React.Component {
                 <Splash/>
                 <ExteriorServices/>
                 <InteriorServices/>
-                <Contact/>
-                <About/>
-                <Blog/>
+                {/*<Contact/>*/}
+                {/*<About/>*/}
+                {/*<Blog/>*/}
             </div>
         );
     }
-
-
 }
 
