@@ -232,7 +232,7 @@
                     display: inline-flex;
                     align-items: center;
                     justify-content: center;
-                    width: 1em;
+                    width: 1.6em;
                     height: 1em;
                     @media screen and (max-width: 800px) {
                       width: 2em;
@@ -491,6 +491,7 @@
           background-attachment: fixed;
           background-repeat: no-repeat;
           background-position: left;
+          background-size: contain;
         }
         &#contactSectionRight {
           background: url("../images/simpleBG.jpg");
