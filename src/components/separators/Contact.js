@@ -19,7 +19,7 @@ export default class BigBoiSeperator extends React.Component {
                     <div id={'contactSectionLeft'} className={'sideSection'}>
                         <div className={'headerHolder'}>
                             <span className={'header'}>Get In</span>
-                            <span className={'header'}>Contact</span>
+                            <span className={'header second'}>Contact</span>
                         </div>
 
 
