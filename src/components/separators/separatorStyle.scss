@@ -477,6 +477,11 @@
         background-color: transparent;
         justify-content: flex-start;
         align-items: flex-start;
+        flex-direction: column;
+        font-family: lust-script-display, sans-serif;
+        font-weight: 400;
+        font-style: normal;
+
         .header {
           color: #f2f2f2;
         }
@@ -486,16 +491,144 @@
         display: flex;
         flex-direction: column;
         flex: 1;
+
         &#contactSectionLeft {
           background: url("../images/contactLeftBG.jpg");
           background-attachment: fixed;
           background-repeat: no-repeat;
           background-position: left;
           background-size: contain;
+
+          .rightSideText {
+            display: flex;
+            flex: .5;
+            justify-content: center;
+            align-items: center;
+            color: #f4f2f2;
+            font-size: 1.5em;
+            padding: 1em 3em;
+          }
         }
+
         &#contactSectionRight {
           background: url("../images/simpleBG.jpg");
           background-size: contain;
+          justify-content: center;
+          align-items: center;
+          background-attachment: fixed;
+
+          #actualForm {
+            height: 80%;
+            display: flex;
+            background: #f4f2f2;
+            width: 60%;
+            flex-direction: column;
+            border-radius: 10px;
+            padding: 2em 1em 1em 1em;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+
+
+            .formSection {
+              display: flex;
+              flex: 1;
+              justify-content: center;
+              align-items: center;
+
+              &.nameNumber {
+                flex-direction: column;
+                justify-content: space-evenly;
+
+                #nameInput {
+                  width: 80%;
+                }
+
+                #numberInput {
+                  width: 50%;
+                }
+
+                #emailInput {
+                  width: 90%;
+                }
+              }
+
+              &.textarea {
+                flex: 1.25;
+
+                textarea {
+                  height: 90%;
+                  width: 90%;
+                  border-radius: 10px;
+                  padding: .5em .75em;
+                  box-sizing: border-box;
+                  font-size: 1.25em;
+                  font-family: halyard-display, sans-serif;
+                  border: 0;
+                  outline: 0;
+                  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2);
+                }
+              }
+
+
+              .contactFormInput {
+                border-radius: 5px;
+                border: 0;
+                outline: 0;
+                background-color: white;
+                height: 1.25em;
+                font-size: 1.5em;
+                text-align: center;
+                color: #3a3a3a;
+                font-family: halyard-display, sans-serif;
+                padding: .1em;
+                box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2);
+              }
+
+              &.bottom {
+                flex: .5;
+                flex-direction: column;
+
+                .contactBotSection {
+                  display: flex;
+                  flex: 1;
+                  justify-content: center;
+                  align-items: center;
+                  height: 100%;
+
+                  &.radiosHolder {
+                    display: flex;
+                    flex: .25;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                    align-items: flex-start;
+                    padding: 0 1.1em;
+                  }
+
+                  &.sendHolder {
+                    flex: .5;
+
+                    button {
+                      width: 4.5em;
+                      height: 2em;
+                      border-radius: 16px;
+                      background: #74e59b;
+                      border: solid 2px white;
+                      box-shadow: 2px 3px 3px #00000061;
+                      font-family: halyard-display, sans-serif;
+                      font-size: 1.5em;
+                      display: flex;
+                      justify-content: center;
+                      align-items: center;
+                      color: white;
+                      font-weight: bold;
+                      letter-spacing: 1px;
+                      cursor: pointer;
+                      user-select: none;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
