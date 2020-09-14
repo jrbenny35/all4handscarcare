@@ -10,7 +10,22 @@ export default class BigBoiSeperator extends React.Component {
     render() {
 
         return (
-            <div className="separator">
+            <div
+                id={'contactSection'}
+                className="separator contact"
+            >
+
+                <div className={'mainBody'}>
+                    <div id={'contactSectionLeft'} className={'sideSection'}>
+                        <div className={'headerHolder'}>
+                            <span className={'header'}>Contact</span>
+                        </div>
+                    </div>
+
+                    <div id={'contactSectionRight'} className={'sideSection'}>
+
+                    </div>
+                </div>
             </div>
         )
     }

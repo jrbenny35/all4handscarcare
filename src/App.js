@@ -34,7 +34,7 @@ export default class App extends React.Component {
                 <Splash/>
                 <ExteriorServices/>
                 <InteriorServices/>
-                {/*<Contact/>*/}
+                <Contact/>
                 {/*<About/>*/}
                 {/*<Blog/>*/}
             </div>

@@ -458,6 +458,48 @@
       }
     }
   }
+
+  &#contactSection {
+    min-height: 100vh;
+    height: 100vh;
+    background-color: #f4f2f2;
+    display: flex;
+    flex-direction: row;
+
+    .mainBody {
+      display: flex;
+      flex-direction: row;
+      height: 100%;
+
+
+      .headerHolder {
+        border: 0;
+        background-color: transparent;
+        justify-content: flex-start;
+        align-items: flex-start;
+        .header {
+          color: #f2f2f2;
+        }
+      }
+
+      .sideSection {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        &#contactSectionLeft {
+          background: url("../images/contactLeftBG.jpg");
+          background-attachment: fixed;
+          background-repeat: no-repeat;
+          background-position: left;
+        }
+        &#contactSectionRight {
+          background: url("../images/simpleBG.jpg");
+          background-size: contain;
+        }
+      }
+    }
+  }
 }
+
 
 
