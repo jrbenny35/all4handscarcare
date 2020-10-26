@@ -1,0 +1,73 @@
+#fixedNav {
+  position: fixed;
+  height: 4em;
+  width: 4em;
+  border-radius: 50%;
+  bottom: 1.5em;
+  right: .65em;
+  background-color: #d35635;
+  border: solid 5px #6dbac6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 2px 3px 8px rgba(0, 0, 0, 0.6);
+
+  span {
+    background-color: #6dbac6;
+    border-radius: 22px;
+    width: 60%;
+    height: .4em;
+    display: block;
+    margin-top: .2em;
+    margin-bottom: .2em;
+    box-shadow: 1px 3px 3px rgba(0, 0, 0, 0.49);
+  }
+}
+
+#desktopNav {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  background-image: linear-gradient(90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.75));
+  border-radius: 5px;
+  font-size: 2.5em;
+  width: 7em;
+  opacity: 0;
+  transition: opacity .5s;
+
+  &.visible {
+    opacity: 1
+  }
+
+  .desktopNavLink {
+    width: auto;
+    text-align: right;
+    padding-right: 1em;
+    color: #f4f2f2;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.49);
+    font-weight: 100;
+    letter-spacing: 0.2em;
+
+    cursor: pointer;
+
+    transition: font-weight .3s;
+
+    &:hover {
+      color: #d6faf4;
+      font-weight: 200;
+    }
+
+    &.currentSection {
+      font-weight: 400;
+      text-decoration: underline;
+    }
+
+  }
+
+  &.top {
+    .desktopNavLink {
+
+    }
+  }
+}

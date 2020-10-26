@@ -14,6 +14,7 @@
   background-color: #282c34;
 
   .headerHolder {
+    animation: headerIntoBig .3s;
     display: flex;
     flex: .25 1;
     max-width: 100%;
@@ -27,13 +28,6 @@
     border-radius: 30px;
     padding: 1em;
     width: 100%;
-    @media screen and (max-width: 800px) {
-      min-height: 3em;
-      border-radius: 15px;
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
-      padding: 0;
-    }
 
     .header {
       font-size: 4.25em;
@@ -44,12 +38,68 @@
       padding: 0 1em;
       text-align: center;
       line-height: 1em;
+      position: relative;
+
+      @media screen and (max-width: 800px) {
+        font-size: 2.25em !important;
+      }
+
+      &.stickyHeaderHolder {
+        opacity: 0;
+      }
+    }
+
+    transition: opacity .5s;
+    @media screen and (max-width: 800px) {
+      min-height: 3em;
+      border-radius: 15px;
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      padding: 0;
+    }
+  }
+
+  .stickyHeaderHolder {
+    opacity: 0;
+    transition: opacity .2s;
+
+    &.visible {
+      display: flex;
+      opacity: 1;
+    }
+
+    flex: .25 1;
+    max-width: 100%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background: black;
+    border: solid 2px;
+    border-radius: 30px;
+    padding: 1em;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-height: 2em;
+
+    .header {
+      font-size: 2em;
+      font-family: halyard-display, sans-serif;
+      font-weight: 200;
+      margin: 0;
+      border-radius: 20px;
+      padding: 0 1em;
+      text-align: center;
+      line-height: 1em;
+      position: relative;
 
       @media screen and (max-width: 800px) {
         font-size: 2.25em !important;
       }
     }
   }
+
 
   .mainBody {
     display: flex;
@@ -307,11 +357,10 @@
       background-image: url('../images/mobileExtBG.jpg');
     }
 
-    .headerHolder {
+    .headerHolder, .stickyHeaderHolder {
       border-color: #d35635;
 
       .header {
-        font-size: 4.25em;
         color: #d35635;
       }
     }
@@ -328,7 +377,7 @@
     display: flex;
     flex-direction: column;
 
-    .headerHolder {
+    .headerHolder, .stickyHeaderHolder {
       border-color: #6dbac6;
 
       .header {
@@ -471,7 +520,10 @@
       display: flex;
       flex-direction: row;
       height: 100%;
-
+      @media screen and (max-width: 800px) {
+        min-height: 100vh;
+        flex-direction: column;
+      }
 
       .headerHolder {
         border: 0;
@@ -479,7 +531,8 @@
         justify-content: flex-start;
         align-items: flex-start;
         flex-direction: column;
-padding-top: 3em;
+        padding-top: 3em;
+
         .header {
           font-family: lust-script-display, sans-serif;
           font-weight: 400;
@@ -487,7 +540,8 @@ padding-top: 3em;
           color: #f2f2f2;
           font-size: 6em;
           text-shadow: 3px 3px 3px black;
-          &.second{
+
+          &.second {
             margin-left: .75em;
           }
         }
@@ -504,6 +558,10 @@ padding-top: 3em;
           background-repeat: no-repeat;
           background-position: left;
           background-size: contain;
+          @media screen and (max-width: 800px) {
+            background-size: cover;
+            flex: 0;
+          }
 
           .rightSideText {
             display: flex;
@@ -513,15 +571,22 @@ padding-top: 3em;
             color: #f4f2f2;
             font-size: 1.5em;
             padding: 1em 3em;
+
           }
         }
 
         &#contactSectionRight {
-          background: url("../images/simpleBG.jpg");
+          background-color: #6dbac6;
           background-size: contain;
           justify-content: center;
           align-items: center;
           background-attachment: fixed;
+          @media screen and (max-width: 800px) {
+            background-size: cover;
+            display: flex;
+            flex: none;
+            height: 100vh;
+          }
 
           #actualForm {
             height: 80%;
@@ -530,9 +595,24 @@ padding-top: 3em;
             width: 60%;
             flex-direction: column;
             border-radius: 10px;
-            padding: 2em 1em 1em 1em;
-            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            padding: 1.5em 1em 1em 1em;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
 
+            #formHeader1 {
+              font-family: lust-script-display, sans-serif;
+              font-weight: 400;
+              font-size: 3em;
+              color: #198192;
+              text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+            }
+
+            #formHeader2 {
+              font-family: lust-script-display, sans-serif;
+              font-weight: 400;
+              font-size: 3em;
+              color: #6dbac6;
+              text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+            }
 
             .formSection {
               display: flex;
@@ -540,9 +620,17 @@ padding-top: 3em;
               justify-content: center;
               align-items: center;
 
+
               &.nameNumber {
                 flex-direction: column;
                 justify-content: space-evenly;
+
+                input {
+                  border: solid 1px #198192;;
+                  //border: solid 1px rgb(154, 153, 153);
+                  font-size: 1.3em;
+                  height: 1.5em;
+                }
 
                 #nameInput {
                   width: 80%;
@@ -566,11 +654,12 @@ padding-top: 3em;
                   border-radius: 10px;
                   padding: .5em .75em;
                   box-sizing: border-box;
-                  font-size: 1.25em;
+                  font-size: 1.2em;
                   font-family: halyard-display, sans-serif;
-                  border: 0;
                   outline: 0;
                   box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2);
+                  border: solid 1px #198192;;
+
                 }
               }
 
@@ -616,10 +705,10 @@ padding-top: 3em;
                       width: 4.5em;
                       height: 2em;
                       border-radius: 16px;
-                      background: #74e59b;
+                      background: #6dbac6;;
                       border: solid 2px white;
                       box-shadow: 2px 3px 3px #00000061;
-                      font-family: halyard-display, sans-serif;
+                      font-family: lust-script-display, sans-serif;
                       font-size: 1.5em;
                       display: flex;
                       justify-content: center;
@@ -639,7 +728,25 @@ padding-top: 3em;
       }
     }
   }
+
 }
 
 
+@keyframes headerIntoSmall {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .75;
+  }
+}
 
+@keyframes headerIntoBig {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: .1;
+  }
+
+}

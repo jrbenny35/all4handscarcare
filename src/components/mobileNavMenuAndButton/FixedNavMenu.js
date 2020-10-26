@@ -12,11 +12,13 @@ export default class FixedNavMenu extends React.Component {
         return (
             <div
                 id={'fixedNav'}
-                onClick={()=>{
+                onClick={() => {
                     this.props.openNav();
                 }}
             >
-                tester
+                <span/>
+                <span/>
+                <span/>
             </div>
         )
     }
