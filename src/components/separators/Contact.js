@@ -84,11 +84,9 @@ export default class BigBoiSeperator extends React.Component {
                     <div id={'contactSectionLeft'} className={'sideSection'}>
                         <div className={'headerHolder'}
                              ref={this.headerHolder}>
-                            <span className={'header'}>Get In</span>
-                            <span className={'header second'}>Contact</span>
+                            <div className={'header'}>Combo</div>
+                            <div className={'header second'}>Deals</div>
                         </div>
-
-
                         <div className={'rightSideText'}>
                             The best way to get started is to get in contact.
                             <br/>Shoot us a message with what your details and we'll be in touch.

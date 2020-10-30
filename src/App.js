@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.css';
-import {FixedNavMenu, MobileNavMenu} from './components/mobileNavMenuAndButton/';
+import {MobileNavButton, MobileNavMenu} from './components/mobileNavMenuAndButton/';
 import {DesktopNav} from './components/desktopNav/';
 import './components/separators';
-import {About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/separators";
+import {BlogAndBTT, About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/separators";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 function posY(elm) {
@@ -49,7 +49,7 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mobileNavOpen: false,
+            mobileNavMenuOpen: false,
             isIOS: false,
             showMobileNavButton: false,
             windowDimensions: {height: null, width: null},
@@ -65,8 +65,11 @@ export default class App extends React.Component {
         }
         this.desktopNavMenuTimeout = () => {
         };
+        this.positionCheckTimeout = () => {
+        };
         this.setWindowDimensions = this.setWindowDimensions.bind(this);
         this.updateCoords = this.updateCoords.bind(this);
+        this.scrollToSection = this.scrollToSection.bind(this);
     }
 
     componentWillMount() {
@@ -80,51 +83,71 @@ export default class App extends React.Component {
         this.setState({isIOS: isIOS});
     }
 
-    onScroll() {
+
+    setDesktopNavTimeout(navFadeoutTimeout = 2000, positionCheckTimeout = 200) {
+        if (this.desktopNavMenuTimeout !== null) {
+            clearTimeout(this.desktopNavMenuTimeout);
+            this.desktopNavMenuTimeout = setTimeout(() => {
+                this.setState({
+                    showDesktopNav: false
+                });
+            }, navFadeoutTimeout);
+            this.positionCheckTimeout = setTimeout(() => {
+                /**
+                 * final check post scroll
+                 **/
+                this.getAndSet_CurrentSection();
+            }, positionCheckTimeout);
+
+        } else {
+            this.desktopNavMenuTimeout = setTimeout(() => {
+                this.setState({showDesktopNav: false});
+            }, navFadeoutTimeout);
+        }
+    }
+
+    getAndSet_CurrentSection(navTimeout) {
         let top = window.pageYOffset;
         let windowHeight = this.state.windowDimensions.height;
         let bot = top + windowHeight;
         let coords = this.state.sectionCoordinates;
         let currentSection;
-
-
         if (bot > coords.exterior.halfCheckDistance) {
-            currentSection = 'exterior';
+            currentSection = 'exteriorServicesSection';
+        }
+        if (bot > coords.interior.halfCheckDistance) {
+            currentSection = 'interiorServicesSection';
+        }
+        if (top < coords.exterior.bot) {
+            currentSection = 'exteriorServicesSection';
+        }
+        if (bot > coords.contact.halfCheckDistance) {
+            currentSection = 'contactSection';
+        }
+        if (top < coords.interior.bot) {
+            currentSection = 'interiorServicesSection';
+        }
+        if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+            currentSection = 'bottom';
         }
         if (top < coords.splash.bot) {
             currentSection = 'splash';
+            this.setState({showDesktopNav: true})
         }
-        if (bot > coords.interior.halfCheckDistance) {
-            currentSection = 'interior';
-        }
-        if (top < coords.exterior.bot) {
-            currentSection = 'exterior';
-        }
-        if (bot > coords.contact.halfCheckDistance) {
-            currentSection = 'contact';
-        }
-        if (top < coords.interior.bot) {
-            currentSection = 'interior';
-        }
-
-
         this.setState({
             windowYOffset: top,
-            currentSection: currentSection,
-            showDesktopNav: true
+            currentSection: currentSection
         }, () => {
-            if (this.desktopNavMenuTimeout !== null) {
-                clearTimeout(this.desktopNavMenuTimeout);
-                this.desktopNavMenuTimeout = setTimeout(() => {
-                    this.setState({showDesktopNav: false});
-                }, 3000);
-
-            } else {
-                this.desktopNavMenuTimeout = setTimeout(() => {
-                    this.setState({showDesktopNav: false});
-                }, 3000);
+            if (navTimeout) {
+                this.setDesktopNavTimeout();
             }
         });
+    }
+
+    onScroll() {
+        let navTimeout = true;
+        this.setState({showDesktopNav: true})
+        this.getAndSet_CurrentSection(navTimeout);
     }
 
     setWindowDimensions() {
@@ -150,9 +173,16 @@ export default class App extends React.Component {
     scrollToSection(sectionID) {
         let offsetTop = document.getElementById(sectionID).offsetTop;
 
+
+        if (this.state.mobileNavMenuOpen) {
+            this.setState({mobileNavMenuOpen: false});
+        }
+
+
         // eslint-disable-next-line no-restricted-globals
         scroll({
             top: offsetTop,
+            currentSection: sectionID,
             behavior: "smooth"
         });
     }
@@ -162,8 +192,10 @@ export default class App extends React.Component {
         let sectionCoords = this.state.sectionCoordinates;
         let reportDistances = (sectionCoords.forceReset || sectionCoords.splash.top_distanceFromTo !== 0);
 
-        let desktopNavClasses = this.state.showDesktopNav ? 'visible' : '';
+        let isAtTop = this.state.currentSection === 'splash';
 
+        let desktopNavClasses = (this.state.showDesktopNav || isAtTop) ? 'visible' : '';
+        desktopNavClasses += isAtTop ? ' top' : '';
         return (
 
             <div
@@ -190,6 +222,12 @@ export default class App extends React.Component {
                         onClick={() => {
                             this.scrollToSection('exteriorServicesSection');
                         }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
                     >
                         Exterior
                     </div>
@@ -197,6 +235,12 @@ export default class App extends React.Component {
                         className={'desktopNavLink'}
                         onClick={() => {
                             this.scrollToSection('interiorServicesSection');
+                        }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
                         }}
                     >
                         Interior
@@ -206,6 +250,12 @@ export default class App extends React.Component {
                         onClick={() => {
                             this.scrollToSection('contactSection');
                         }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
                     >
                         Contact
                     </div>
@@ -213,6 +263,12 @@ export default class App extends React.Component {
                         className={'desktopNavLink'}
                         onClick={() => {
                             window.open('http://google.com');
+                        }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
                         }}
                     >
                         Blog
@@ -222,21 +278,32 @@ export default class App extends React.Component {
                         onClick={() => {
                             this.scrollToSection('splash');
                         }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
                     >
                         Top
                     </div>
 
                 </div>
                 }
-
-                {this.state.mobileNavOpen && MobileNavMenu}
-                {this.state.showMobileNavButton && !this.state.mobileNavOpen &&
-                <FixedNavMenu
+                {this.state.showMobileNavButton && !this.state.mobileNavMenuOpen &&
+                <MobileNavButton
                     openNav={() => {
-                        this.setState({mobileNavOpen: true});
+                        this.setState({mobileNavMenuOpen: true});
                     }}
+                    currentSection={this.state.currentSection}
                 />
                 }
+                {this.state.mobileNavMenuOpen && <MobileNavMenu
+                    scrollToSection={this.scrollToSection}
+                    currentSection={this.state.currentSection}
+
+                />}
+
                 <Splash
                     currentSection={this.state.currentSection}
                     sectionCoordinates={this.state.sectionCoordinates}
@@ -248,6 +315,18 @@ export default class App extends React.Component {
                         this.updateCoords('splash', coordObj);
                     }}
                 />
+                <Contact
+                    currentSection={this.state.currentSection}
+                    sectionCoordinates={this.state.sectionCoordinates}
+                    windowYOffset={this.state.windowYOffset}
+                    forceReset={sectionCoords.forceReset}
+                    windowDimensions={this.state.windowDimensions}
+                    stickyHeader={this.state.currentStickyHeader}
+                    reportDistance={reportDistances}
+                    updateCoords={(coordObj) => {
+                        this.updateCoords('contactSection', coordObj);
+                    }}
+                />
                 <ExteriorServices
                     currentSection={this.state.currentSection}
                     sectionCoordinates={this.state.sectionCoordinates}
@@ -257,7 +336,7 @@ export default class App extends React.Component {
                     stickyHeader={this.state.currentStickyHeader}
                     reportDistance={reportDistances}
                     updateCoords={(coordObj) => {
-                        this.updateCoords('exterior', coordObj);
+                        this.updateCoords('exteriorServicesSection', coordObj);
                     }}
                 />
                 <InteriorServices
@@ -269,19 +348,15 @@ export default class App extends React.Component {
                     stickyHeader={this.state.currentStickyHeader}
                     reportDistance={reportDistances}
                     updateCoords={(coordObj) => {
-                        this.updateCoords('interior', coordObj);
+                        this.updateCoords('interiorServicesSection', coordObj);
                     }}
                 />
-                <Contact
-                    currentSection={this.state.currentSection}
-                    sectionCoordinates={this.state.sectionCoordinates}
-                    windowYOffset={this.state.windowYOffset}
-                    forceReset={sectionCoords.forceReset}
-                    windowDimensions={this.state.windowDimensions}
-                    stickyHeader={this.state.currentStickyHeader}
-                    reportDistance={reportDistances}
-                    updateCoords={(coordObj) => {
-                        this.updateCoords('contact', coordObj);
+                <BlogAndBTT
+                    backToTop={() => {
+                        this.scrollToSection('splash');
+                    }}
+                    openBlog={() => {
+                        window.open('http://google.com');
                     }}
                 />
                 {/*<About/>*/}

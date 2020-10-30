@@ -1,5 +1,5 @@
-import FixedNavMenu from "./FixedNavMenu";
+import MobileNavButton from "./mobileNavButton";
 import MobileNavMenu from "./MobileNavMenu";
 import style from './fixedNavStyle.scss';
 
-export {FixedNavMenu, style, MobileNavMenu};
+export {MobileNavButton, style, MobileNavMenu};

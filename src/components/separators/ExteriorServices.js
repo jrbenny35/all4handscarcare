@@ -31,7 +31,6 @@ export default class ExteriorServices extends React.Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-
         if (this.state.allowUpdate) {
             clearTimeout(this.localTimeout);
             let localCoords = this.state.coords;
