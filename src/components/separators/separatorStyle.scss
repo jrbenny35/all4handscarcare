@@ -317,7 +317,7 @@
       background-attachment: scroll;
     }
     background-color: white;
-    background-image: url('../images/darkMercedesdash.jpg');
+    background-image: url('../../images/darkMercedesdash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -352,7 +352,7 @@
   }
 
   &#exteriorServicesSection {
-    background-image: url('../images/extBG3.jpg');
+    background-image: url('../../images/extBG3.jpg');
 
 
     background-repeat: no-repeat;
@@ -364,7 +364,7 @@
     @media screen and (max-width: 800px) {
       background-attachment: scroll;
       background-position: 0;
-      background-image: url('../images/mobileExtBG.jpg');
+      background-image: url('../../images/mobileExtBG.jpg');
     }
 
     .headerHolder, .stickyHeaderHolder {
@@ -379,7 +379,7 @@
   }
 
   &#interiorServicesSection {
-    background-image: url('../images/interiorBG1.jpg');
+    background-image: url('../../images/interiorBG1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -589,7 +589,7 @@
         }
 
         &#contactSectionLeft {
-          background: url("../images/contactLeftBG.jpg");
+          background: url("../../images/contactLeftBG.jpg");
           background-attachment: fixed;
           background-repeat: no-repeat;
           background-position: left;
@@ -606,52 +606,97 @@
             align-items: center;
             color: #f4f2f2;
             font-size: 1.5em;
-            padding: 1em 3em;
+            padding: 1em 0;
+            background: transparent;
+            transition: border-color .25s, background-color .25s;
 
+            ul {
+              .comboSpecial {
+                cursor: pointer;
+                user-select: none;
+                text-align: left;
+                margin-bottom: 1em;
+                border: solid 2px transparent;
+                list-style-type: circle;
+
+                .comboText {
+                  font-weight: 400;
+                  padding-left: .2em;
+                  transition: color .25s;
+                }
+
+                .comboPrice {
+                  color: #60cbcb;
+                  font-weight: 400;
+                  margin-left: 1em;
+                }
+
+                &.selected {
+                  color: #355e35;
+
+                  .comboText {
+                    color: #59a159;
+                  }
+
+                  text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.45);
+                  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.47);
+                  border: solid 2px #59a159;
+                  background: rgba(0, 0, 0, 0.27);
+                  border-radius: 5px;
+                  list-style-type: disc;
+                }
+              }
+            }
           }
         }
 
         &#contactSectionRight {
-          background-color: #b6ded3;
-          background-size: contain;
+          background-image: url('../../images/contactBG.jpg');
+          background-size: cover;
           align-items: center;
-          justify-content: center;
+          justify-content: flex-start;
           background-attachment: fixed;
           flex-direction: column;
-
           @media screen and (max-width: 800px) {
             background-size: cover;
             display: flex;
             flex: none;
-            height: 100vh;
+            height: auto;
+            padding-bottom: 5em;
           }
 
           .headerHolder {
-            flex: unset;
-            display: flex;
-            height: auto !important;
-            padding: 2em 0;
-
+            border: 0;
+            background-color: transparent;
+            justify-content: flex-start;
+            align-items: flex-start;
+            flex-direction: column;
+            padding-top: .5em;
+            @media screen and (max-width: 800px) {
+              padding-top: 0;
+              margin-bottom: .5em;
+            }
             .header {
               font-size: 4em;
               color: white;
               text-shadow: 2px 3px 3px #a1a1a1;
+              margin: .25em;
             }
           }
 
           #actualForm {
             height: 40em;
             display: flex;
-            background: #f4f2f2;
+            //background: #f4f2f2;
+            border: solid 1px white;
             width: 60%;
             flex-direction: column;
-            border-radius: 10px;
-            padding: 1.5em 1em 1em 1em;
-            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.5);
-
-
+            border-radius: 5px;
+            padding: 3em 2em;
+            box-sizing: border-box;
             @media screen and (max-width: 800px) {
               width: 80%;
+              height: auto;
             }
 
             @media screen and (min-width: 2000px) {
@@ -659,20 +704,19 @@
               margin: 3em 0;
             }
 
-            #formHeader1 {
-              font-family: lust-script-display, sans-serif;
-              font-weight: 400;
-              font-size: 3em;
-              color: #198192;
-              text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-            }
-
-            #formHeader2 {
-              font-family: lust-script-display, sans-serif;
-              font-weight: 400;
-              font-size: 3em;
-              color: #6dbac6;
-              text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+            .contactFormInput {
+              border-radius: 5px;
+              border: 0;
+              outline: 0;
+              background-color: white;
+              height: 1.25em;
+              font-size: 1.5em;
+              text-align: left;
+              color: #3a3a3a;
+              font-family: halyard-display, sans-serif;
+              padding: .1em;
+              padding-left: 1em;
+              box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2);
             }
 
             .formSection {
@@ -680,67 +724,80 @@
               flex: 1;
               justify-content: center;
               align-items: center;
+              flex-direction: column;
 
+              input {
+                font-size: 1.3em;
+                height: 1.6em;
+                display: flex;
+                flex: 1;
+                background: transparent;
+                border: solid 1px white;
+                color: #afafaf;
+              }
 
-              &.nameNumber {
-                flex-direction: column;
-                justify-content: space-evenly;
-
-                input {
-                  border: solid 1px #198192;;
-                  //border: solid 1px rgb(154, 153, 153);
-                  font-size: 1.3em;
-                  height: 1.5em;
-                }
-
-                #nameInput {
+              &.top {
+                .necessaryFieldHolder {
+                  display: flex;
+                  flex: 1;
                   width: 80%;
+                  justify-content: center;
+                  align-items: center;
+
+                  .necessaryFieldIndicator {
+                    height: .5em;
+                    width: .5em;
+                    border: solid 2px;
+                    border-color: orange;
+                    border-radius: 50%;
+                    display: flex;
+                    background-color: transparent;
+                    transition: border-color .25s, background-color .25s;
+
+                    &.valid {
+                      border-color: green;
+                      background-color: green;
+                    }
+
+                    &.invalid {
+                      border-color: red;
+                      background-color: red;
+                    }
+                  }
                 }
 
-                #numberInput {
-                  width: 50%;
+                #selectedServices {
+                  font-size: 1.35em;
+                  padding: .1em;
+                  padding-left: 1em;
+                  align-items: center;
+                  border: solid 1px white;
+                  width: 80%;
+                  color: #afafaf;
+                  margin: 1em 0;
+
+                  #selectedServicesHeader {
+                    color: #afafaf;
+                    font-size: 1.1em;
+                    font-weight: 200;
+                  }
                 }
 
-                #emailInput {
-                  width: 90%;
+
+                #makeModelHolder {
+                  input {
+                    flex: 1;
+                    margin: .75em;
+                  }
                 }
-              }
 
-              &.textarea {
-                flex: 1.25;
-
-                textarea {
-                  height: 90%;
-                  width: 90%;
-                  border-radius: 10px;
-                  padding: .5em .75em;
-                  box-sizing: border-box;
-                  font-size: 1.2em;
-                  font-family: halyard-display, sans-serif;
-                  outline: 0;
-                  box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2);
-                  border: solid 1px #198192;;
+                #disclaimer {
+                  color: #afafaf;
 
                 }
-              }
-
-
-              .contactFormInput {
-                border-radius: 5px;
-                border: 0;
-                outline: 0;
-                background-color: white;
-                height: 1.25em;
-                font-size: 1.5em;
-                text-align: center;
-                color: #3a3a3a;
-                font-family: halyard-display, sans-serif;
-                padding: .1em;
-                box-shadow: 1px 3px 6px rgba(0, 0, 0, 0.2);
               }
 
               &.bottom {
-                flex: .5;
                 flex-direction: column;
 
                 .contactBotSection {
@@ -795,7 +852,7 @@
     min-height: unset;
     align-items: center;
     justify-content: center;
-    background-color: #a6bf8e;
+    background-color: #6dbac6;
 
     .mainBody {
       flex-direction: row;
@@ -818,6 +875,9 @@
         &:hover {
           text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);
           background-color: rgba(255, 255, 255, 0.2);
+        }
+        img{
+          max-height: 10em;
         }
       }
     }

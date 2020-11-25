@@ -15,10 +15,12 @@ export default class BlogAndBTT extends React.Component {
                 <div className={'mainBody'}>
                     <div className={'bottomButton'}
                          onClick={this.props.openBlog}
-                    > Visit Our BLog</div>
+                    > Visit Our BLog
+                    </div>
                     <div className={'bottomButton'}
                          onClick={this.props.backToTop}
-                    > Back to Top</div>
+                    > Back to Top
+                    </div>
                 </div>
             </div>
         )

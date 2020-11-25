@@ -6,6 +6,8 @@ import './components/separators';
 import {BlogAndBTT, About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/separators";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
+import IDAcert from '../src/images/IDA_Logo_MB_CD_SV.png';
+
 function posY(elm) {
     var test = elm, top = 0;
 
@@ -220,6 +222,34 @@ export default class App extends React.Component {
                     <div
                         className={'desktopNavLink'}
                         onClick={() => {
+                            this.scrollToSection('contactSectionRight');
+                        }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                    >
+                        Contact
+                    </div>
+                    <div
+                        className={'desktopNavLink'}
+                        onClick={() => {
+                            this.scrollToSection('contactSectionLeft');
+                        }}
+                        onMouseEnter={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                        onMouseMove={() => {
+                            this.setDesktopNavTimeout(1500);
+                        }}
+                    >
+                        Deals
+                    </div>
+                    <div
+                        className={'desktopNavLink'}
+                        onClick={() => {
                             this.scrollToSection('exteriorServicesSection');
                         }}
                         onMouseEnter={() => {
@@ -245,20 +275,8 @@ export default class App extends React.Component {
                     >
                         Interior
                     </div>
-                    <div
-                        className={'desktopNavLink'}
-                        onClick={() => {
-                            this.scrollToSection('contactSection');
-                        }}
-                        onMouseEnter={() => {
-                            this.setDesktopNavTimeout(1500);
-                        }}
-                        onMouseMove={() => {
-                            this.setDesktopNavTimeout(1500);
-                        }}
-                    >
-                        Contact
-                    </div>
+
+
                     <div
                         className={'desktopNavLink'}
                         onClick={() => {
@@ -361,6 +379,14 @@ export default class App extends React.Component {
                 />
                 {/*<About/>*/}
                 {/*<Blog/>*/}
+                <img
+                    id={'IDA_cert'}
+                    src={IDAcert}
+                    onClick={()=>{
+                        window.open('https://the-ida.com/page/About_Us');
+
+                    }}
+                />
             </div>
         );
     }

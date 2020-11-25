@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../images/textLogoLightFont.png';
+import logoImg from '../../images/textLogoLightFont.png';
 
 export default class BigBoiSeperator extends React.Component {
     constructor(props) {
