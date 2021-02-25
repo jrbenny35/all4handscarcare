@@ -333,6 +333,18 @@ export default class App extends React.Component {
                         this.updateCoords('splash', coordObj);
                     }}
                 />
+                <About
+                    currentSection={this.state.currentSection}
+                    sectionCoordinates={this.state.sectionCoordinates}
+                    windowYOffset={this.state.windowYOffset}
+                    forceReset={sectionCoords.forceReset}
+                    windowDimensions={this.state.windowDimensions}
+                    stickyHeader={this.state.currentStickyHeader}
+                    reportDistance={reportDistances}
+                    updateCoords={(coordObj) => {
+                        this.updateCoords('contactSection', coordObj);
+                    }}
+                />
                 <Contact
                     currentSection={this.state.currentSection}
                     sectionCoordinates={this.state.sectionCoordinates}
@@ -377,7 +389,6 @@ export default class App extends React.Component {
                         window.open('http://google.com');
                     }}
                 />
-                {/*<About/>*/}
                 {/*<Blog/>*/}
                 <img
                     id={'IDA_cert'}
