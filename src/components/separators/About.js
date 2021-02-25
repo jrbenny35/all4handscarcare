@@ -23,7 +23,7 @@ export default class BigBoiSeperator extends React.Component {
                         <div className={'header'}>About</div>
                     </div>
                     <div id={'aboutContent'}>
-                        <div id={'aboutText'}>
+                        <div id={'aboutTextAndImg'}>
 
                             <p>pinterest health goth. Skateboard master cleanse godard, put a bird on it dreamcatcher
                                 aesthetic wayfarers you probably haven't heard of them cold-pressed. Williamsburg
@@ -33,10 +33,15 @@ export default class BigBoiSeperator extends React.Component {
                                 Activated charcoal yr mixtape migas coloring book authentic. Ethical single-origin
                                 coffee palo santo forage wayfarers beard. Flannel mustache church-key tote bag
                                 humblebrag viral. Leggings </p>
+                            <div id={'aboutPic'}>
+                                <img id={'benPic'} src={benPic}/>
+                            </div>
                         </div>
-                        <div id={'aboutPic'}>
-                            <img id={'benPic'} src={benPic}/>
-                        </div>
+                        <div id={'boldAboutText'}>
+                            <p>in the sea of other things sometimes, some things shine brighter
+                            than the sun </p></div>
+
+
                     </div>
                 </div>
             </div>

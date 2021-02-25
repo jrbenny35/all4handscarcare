@@ -1,6 +1,7 @@
 * {
   max-width: 100%;
-
+  margin-block-start: 0;
+  margin-block-end: 0;
 }
 
 .separator {
@@ -32,6 +33,9 @@
     border-radius: 30px;
     padding: 1em;
     width: 100%;
+    @media screen and (max-width: 800px) {
+      margin-bottom: .5em;
+    }
 
     .header {
       font-size: 4.25em;
@@ -45,7 +49,7 @@
       position: relative;
 
       @media screen and (max-width: 800px) {
-        font-size: 2.25em !important;
+        font-size: 3em !important;
       }
 
       &.stickyHeaderHolder {
@@ -532,7 +536,7 @@
       justify-content: flex-start;
       align-items: flex-start;
       flex-direction: column;
-      padding-top: 3em;
+      padding-top: 1.5em;
       flex: unset;
 
       .header {
@@ -553,35 +557,54 @@
 
       #aboutContent {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
-        #aboutText {
+        #aboutTextAndImg {
           display: flex;
-          flex: 2;
-          padding: 1em;
+          flex: 1;
           font-size: 2em;
           color: white;
+          flex-direction: row;
           align-items: center;
           justify-content: center;
+          @media screen and (max-width: 800px) {
+            flex-direction: column;
+            font-size: 1.5em;
+          }
 
           p {
-            margin-block-start: 0;
-            margin-block-end: 0;
+            display: flex;
+            flex: 1.75;
+            padding: 0 1em;
+          }
+
+          #aboutPic {
+            display: flex;
+            flex: 1;
+            align-items: flex-start;
+            justify-content: center;
+
+            img {
+              border-radius: 50%;
+              height: 13em;
+              width: 13em;
+              box-shadow: 3px 3px 15px black;
+              @media screen and (max-width: 800px) {
+                height: 8em;
+                width: 8em;
+                margin: 1em 0;
+              }
+            }
           }
         }
 
-        #aboutPic {
-          display: flex;
-          flex: 1;
-          align-items: flex-start;
-          justify-content: center;
-          padding-bottom: 5em;
+        #boldAboutText {
+          padding: 1em;
 
-          img {
-            border-radius: 50%;
-            height: 50vh;
-            width: 50vh;
-            box-shadow: 3px 3px 15px black;
+          p {
+            font-size: 2em;
+            color: #bbb;
+            font-weight: 400;
           }
         }
       }
@@ -698,7 +721,14 @@
                 }
 
                 .comboPrice {
-                  color: #60cbcb;
+                  color: #cba460;
+                  font-weight: 300;
+                  margin-left: 1em;
+                  text-decoration: line-through;
+                }
+
+                .discountedPrice {
+                  color: #60cb65;
                   font-weight: 400;
                   margin-left: 1em;
                 }
@@ -816,6 +846,9 @@
                   display: flex;
                   flex-direction: row;
                   width: 100%;
+                  @media screen and (max-width: 800px) {
+                    flex-direction: column;
+                  }
 
                   .necessaryFieldHolder {
                     display: flex;
@@ -853,6 +886,10 @@
                     flex-direction: column;
                     align-items: flex-end;
                     justify-content: flex-end;
+                    @media screen and (max-width: 800px) {
+                      align-items: center;
+                      justify-content: center;
+                    }
                   }
 
                   #makeModelHolder {
@@ -876,7 +913,7 @@
                   align-items: center;
                   border: solid 1px white;
                   width: 80%;
-                  height:15em;
+                  height: 15em;
                   color: #afafaf;
                   margin: 1em 0;
 

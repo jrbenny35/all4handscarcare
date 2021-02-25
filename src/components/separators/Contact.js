@@ -3,18 +3,39 @@ import React from 'react';
 const sampleCombos = [
     {
         text: 'this is deal text',
-        price: 1,
+        price: 500,
+        discountedPrice: 0,
         id: 1
     }, {
         text: 'this is deal text',
-        price: 2,
+        price: 500,
+        discountedPrice: 0,
         id: 2
 
     },
     {
         text: 'this is deal text',
-        price: 99999,
+        price: 500,
+        discountedPrice: 0,
         id: 3
+    },
+    {
+        text: 'this is deal text',
+        price: 500,
+        discountedPrice: 0,
+        id: 4
+    }, {
+        text: 'this is deal text',
+        price: 500,
+        discountedPrice: 0,
+        id: 5
+
+    },
+    {
+        text: 'this is deal text',
+        price: 500,
+        discountedPrice: 0,
+        id: 6
     }
 ];
 
@@ -110,9 +131,10 @@ export default class BigBoiSeperator extends React.Component {
                     <div id={'contactSectionLeft'} className={'sideSection'}>
                         <div className={'headerHolder'}
                              ref={this.headerHolder}>
-                            <div className={'header'}>Combo</div>
-                            <div className={'header second'}>Deals</div>
+                            <div className={'header'}>Special</div>
+                            <div className={'header second'}>Offers</div>
                         </div>
+
                         <div className={'rightSideText'}>
                             <ul>
                                 {sampleCombos.map((comboObj, i) => {
@@ -155,6 +177,9 @@ export default class BigBoiSeperator extends React.Component {
                                                 </span>
                                         <span className={'comboPrice'}>
                                                     {comboObj.price}
+                                                </span>
+                                        <span className={'discountedPrice'}>
+                                                    {comboObj.discountedPrice}
                                                 </span>
                                     </li>);
                                 })}
