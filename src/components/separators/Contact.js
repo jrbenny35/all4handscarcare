@@ -170,104 +170,104 @@ export default class BigBoiSeperator extends React.Component {
                         <div id={'actualForm'}>
                             {/*<div id={'formHeader1'}>Let's talk</div>*/}
                             <div className={'formSection top'}>
-                                <div className={'necessaryFieldHolder'}>
-                                    <input
-                                        type={'text'}
-                                        className={'contactFormInput'}
-                                        id={'nameInput'}
-                                        placeholder={'Name'}
-                                        value={this.state.name}
-                                        onChange={(e) => {
-                                            let val = e.target.value;
-                                            this.setState({name: val})
-                                        }}
-                                    />
-                                    <div
-                                        className={('necessaryFieldIndicator' + (this.state.name.length !== 0 ? ' valid' : ''))}/>
+                                <div id={'formInputs'}>
+                                    <div id={'nameAndNumber'}>
+                                        <div className={'necessaryFieldHolder'}>
+                                            <input
+                                                type={'text'}
+                                                className={'contactFormInput'}
+                                                id={'nameInput'}
+                                                placeholder={'Name'}
+                                                value={this.state.name}
+                                                onChange={(e) => {
+                                                    let val = e.target.value;
+                                                    this.setState({name: val})
+                                                }}
+                                            />
+                                            <div
+                                                className={('necessaryFieldIndicator' + (this.state.name.length !== 0 ? ' valid' : ''))}/>
 
+                                        </div>
+                                        <div className={'necessaryFieldHolder'}>
+                                            <input
+                                                type={'input'}
+                                                className={'contactFormInput'}
+                                                id={'numberInput'}
+                                                placeholder={'Number'}
+                                                value={this.state.phoneNumberDisplayed}
+                                                onChange={(e) => {
+                                                    let val = e.target.value;
+
+                                                    //pure numbers
+                                                    let newNumberValue = val.replace(/\D/g, '');
+                                                    let displayedNumber = newNumberValue;
+                                                    let length = newNumberValue.length;
+                                                    if (length === 0) {
+                                                        displayedNumber = '';
+                                                    } else if (length <= 3) {
+                                                        //12
+                                                        // -> (12)
+                                                        displayedNumber = '(' + displayedNumber;
+                                                    } else if (length <= 6) {
+                                                        displayedNumber = '(' + newNumberValue.substring(0, 3) + ') ' + newNumberValue.substring(3);
+                                                    } else if (length <= 10) {
+                                                        displayedNumber = '(' + newNumberValue.substring(0, 3) + ') ' + newNumberValue.substring(3, 6) + '-' + newNumberValue.substring(6);
+                                                    } else {
+                                                        return;
+                                                    }
+
+                                                    console.log(newNumberValue);
+                                                    this.setState({
+                                                        phoneNumber: newNumberValue,
+                                                        phoneNumberDisplayed: displayedNumber
+                                                    });
+                                                }}
+                                            />
+                                            <div
+                                                className={('necessaryFieldIndicator' + (this.state.phoneNumber.length === 10 ? ' valid' : ''))}/>
+                                        </div>
+                                    </div>
+                                    <div id={'makeModelHolder'}>
+                                        <input
+                                            type={'text'}
+                                            className={'contactFormInput'}
+                                            id={'make'}
+                                            placeholder={'Make'}
+                                            value={this.state.make}
+                                            onChange={(e) => {
+                                                let val = e.target.value;
+                                                this.setState({make: val})
+                                            }}
+                                        />
+                                        <input
+                                            type={'text'}
+                                            className={'contactFormInput'}
+                                            id={'year'}
+                                            placeholder={'Year'}
+                                            value={this.state.year}
+                                            onChange={(e) => {
+                                                let val = e.target.value;
+                                                let numericalYearValue = val.replace(/\D/g, '');
+                                                if (numericalYearValue.length > 4) {
+                                                    numericalYearValue = numericalYearValue.substring(0, 3);
+                                                }
+                                                this.setState({year: numericalYearValue})
+                                            }}
+                                        />
+                                        <input
+                                            type={'text'}
+                                            className={'contactFormInput'}
+                                            id={'model'}
+                                            placeholder={'Model'}
+                                            value={this.state.model}
+                                            onChange={(e) => {
+                                                let val = e.target.value;
+                                                this.setState({model: val})
+                                            }}
+                                        />
+                                    </div>
                                 </div>
-                                <div className={'necessaryFieldHolder'}>
-                                    <input
-                                        type={'input'}
-                                        className={'contactFormInput'}
-                                        id={'numberInput'}
-                                        placeholder={'Number'}
-                                        value={this.state.phoneNumberDisplayed}
-                                        onChange={(e) => {
-                                            let val = e.target.value;
-
-                                            //pure numbers
-                                            let newNumberValue = val.replace(/\D/g, '');
-                                            let displayedNumber = newNumberValue;
-                                            let length = newNumberValue.length;
-                                            if (length === 0) {
-                                                displayedNumber = '';
-                                            } else if (length <= 3) {
-                                                //12
-                                                // -> (12)
-                                                displayedNumber = '(' + displayedNumber;
-                                            } else if (length <= 6) {
-                                                displayedNumber = '(' + newNumberValue.substring(0, 3) + ') ' + newNumberValue.substring(3);
-                                            } else if (length <= 10) {
-                                                displayedNumber = '(' + newNumberValue.substring(0, 3) + ') ' + newNumberValue.substring(3, 6) + '-' + newNumberValue.substring(6);
-                                            } else {
-                                                return;
-                                            }
-
-                                            console.log(newNumberValue);
-                                            this.setState({
-                                                phoneNumber: newNumberValue,
-                                                phoneNumberDisplayed: displayedNumber
-                                            });
-                                        }}
-                                    />
-                                    <div
-                                        className={('necessaryFieldIndicator' + (this.state.phoneNumber.length === 10 ? ' valid' : ''))}/>
-                                </div>
-                                <div id={'makeModelHolder'}>
-                                    <input
-                                        type={'text'}
-                                        className={'contactFormInput'}
-                                        id={'make'}
-                                        placeholder={'Make'}
-                                        value={this.state.make}
-                                        onChange={(e) => {
-                                            let val = e.target.value;
-                                            this.setState({make: val})
-                                        }}
-                                    />
-                                    <input
-                                        type={'text'}
-                                        className={'contactFormInput'}
-                                        id={'year'}
-                                        placeholder={'Year'}
-                                        value={this.state.year}
-                                        onChange={(e) => {
-                                            let val = e.target.value;
-                                            let numericalYearValue = val.replace(/\D/g, '');
-                                            if (numericalYearValue.length > 4) {
-                                                numericalYearValue = numericalYearValue.substring(0, 3);
-                                            }
-                                            this.setState({year: numericalYearValue})
-                                        }}
-                                    />
-                                    <input
-                                        type={'text'}
-                                        className={'contactFormInput'}
-                                        id={'model'}
-                                        placeholder={'Model'}
-                                        value={this.state.model}
-                                        onChange={(e) => {
-                                            let val = e.target.value;
-                                            this.setState({model: val})
-                                        }}
-                                    />
-                                </div>
-
-
-                                <div
-                                    id={'selectedServices'}
-                                >
+                                <div id={'selectedServices'}>
                                     <div id={'selectedServicesHeader'}>Selected Combos</div>
                                     <div id={'selectionsHolder'}>
                                         {this.state.selectedServices.map((combo) => {
@@ -281,7 +281,6 @@ export default class BigBoiSeperator extends React.Component {
                                     We'll discuss availability when scheduling your appointment.
                                     {/*Selecting a date does not guarantee its availability*/}
                                 </div>
-
                             </div>
 
 

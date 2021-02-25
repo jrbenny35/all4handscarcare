@@ -520,8 +520,7 @@
   }
 
   &#aboutSection {
-    min-height: 100vh;
-    height: 100vh;
+    min-height: unset;
     background-color: #f4f2f2;
     display: flex;
     flex-direction: column;
@@ -576,6 +575,7 @@
           flex: 1;
           align-items: flex-start;
           justify-content: center;
+          padding-bottom: 5em;
 
           img {
             border-radius: 50%;
@@ -665,6 +665,7 @@
           background-repeat: no-repeat;
           background-position: left;
           background-size: contain;
+          flex: 1;
           @media screen and (max-width: 800px) {
             background-size: cover;
             flex: 0;
@@ -728,6 +729,7 @@
           justify-content: flex-start;
           background-attachment: fixed;
           flex-direction: column;
+          flex: 1.75;
           @media screen and (max-width: 800px) {
             background-size: cover;
             display: flex;
@@ -740,7 +742,7 @@
             border: 0;
             background-color: transparent;
             justify-content: flex-start;
-            align-items: flex-start;
+            align-items: center;
             flex-direction: column;
             padding-top: .5em;
             @media screen and (max-width: 800px) {
@@ -757,11 +759,11 @@
           }
 
           #actualForm {
-            height: 40em;
+            height: auto;
             display: flex;
             //background: #f4f2f2;
             border: solid 1px white;
-            width: 60%;
+            width: 80%;
             flex-direction: column;
             border-radius: 5px;
             padding: 3em 2em;
@@ -775,6 +777,7 @@
               height: 60em;
               margin: 3em 0;
             }
+
 
             .contactFormInput {
               border-radius: 5px;
@@ -809,31 +812,59 @@
               }
 
               &.top {
-                .necessaryFieldHolder {
+                #formInputs {
                   display: flex;
-                  flex: 1;
-                  width: 80%;
-                  justify-content: center;
-                  align-items: center;
+                  flex-direction: row;
+                  width: 100%;
 
-                  .necessaryFieldIndicator {
-                    height: .5em;
-                    width: .5em;
-                    border: solid 2px;
-                    border-color: orange;
-                    border-radius: 50%;
+                  .necessaryFieldHolder {
                     display: flex;
-                    background-color: transparent;
-                    transition: border-color .25s, background-color .25s;
+                    flex: 1;
+                    width: 80%;
+                    justify-content: center;
+                    align-items: center;
 
-                    &.valid {
-                      border-color: green;
-                      background-color: green;
+                    .necessaryFieldIndicator {
+                      height: .5em;
+                      width: .5em;
+                      border: solid 2px;
+                      border-color: orange;
+                      border-radius: 50%;
+                      display: flex;
+                      background-color: transparent;
+                      transition: border-color .25s, background-color .25s;
+                      margin-left: .5em;
+
+                      &.valid {
+                        border-color: green;
+                        background-color: green;
+                      }
+
+                      &.invalid {
+                        border-color: red;
+                        background-color: red;
+                      }
                     }
+                  }
 
-                    &.invalid {
-                      border-color: red;
-                      background-color: red;
+                  #nameAndNumber {
+                    display: flex;
+                    flex: 1;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    justify-content: flex-end;
+                  }
+
+                  #makeModelHolder {
+                    flex: 1;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-evenly;
+                    align-items: center;
+
+                    input {
+                      flex: 1;
+                      margin: .75em;
                     }
                   }
                 }
@@ -845,6 +876,7 @@
                   align-items: center;
                   border: solid 1px white;
                   width: 80%;
+                  height:15em;
                   color: #afafaf;
                   margin: 1em 0;
 
@@ -855,13 +887,6 @@
                   }
                 }
 
-
-                #makeModelHolder {
-                  input {
-                    flex: 1;
-                    margin: .75em;
-                  }
-                }
 
                 #disclaimer {
                   color: #afafaf;
