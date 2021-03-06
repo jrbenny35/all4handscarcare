@@ -78,6 +78,7 @@ export default class Splash extends React.Component {
                     src={logoImg}
                     ref={this.entireSection}
                 />
+
                 <div id={'slogan'}>When two hands aren't enough.</div>
             </div>
         )
