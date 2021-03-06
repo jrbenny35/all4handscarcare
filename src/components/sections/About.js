@@ -1,7 +1,7 @@
 import React from 'react';
-import benPic from '../../images/armsCrossedPepe.png';
+import benPic from '../../assets/images/armsCrossedPepe.png';
 
-export default class BigBoiSeperator extends React.Component {
+export default class About extends React.Component {
     constructor(props) {
         super(props);
         this.state = {current: this.props.current};

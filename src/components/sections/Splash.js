@@ -1,7 +1,7 @@
 import React from 'react';
-import logoImg from '../../images/textLogoLightFont.png';
+import logoImg from '../../assets/images/textLogoLightFont.png';
 
-export default class BigBoiSeperator extends React.Component {
+export default class Splash extends React.Component {
     constructor(props) {
         super(props);
         this.entireSection = React.createRef();

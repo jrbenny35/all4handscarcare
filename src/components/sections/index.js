@@ -1,5 +1,5 @@
 import Splash from "./Splash";
-import Contact from "./Contact";
+import Contact from "./OffersAndContact";
 import ExteriorServices from "./ExteriorServices";
 import InteriorServices from "./InteriorServices";
 import About from "./About";

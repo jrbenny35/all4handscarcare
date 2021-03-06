@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-export default class BigBoiSeperator extends React.Component {
+export default class Blog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {current: this.props.current};

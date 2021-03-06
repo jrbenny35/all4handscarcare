@@ -2,11 +2,11 @@ import React from 'react';
 import './App.css';
 import {MobileNavButton, MobileNavMenu} from './components/mobileNavMenuAndButton/';
 import {DesktopNav} from './components/desktopNav/';
-import './components/separators';
-import {BlogAndBTT, About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/separators";
+import './components/sections';
+import {BlogAndBTT, About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/sections";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
-import IDAcert from '../src/images/IDA_Logo_MB_CD_SV.png';
+import IDAcert from './assets/images/IDA_Logo_MB_CD_SV.png';
 
 function posY(elm) {
     var test = elm, top = 0;

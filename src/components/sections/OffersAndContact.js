@@ -1,5 +1,5 @@
 import React from 'react';
-
+import offers from '../../assets/offers.js';
 const sampleCombos = [
     {
         text: 'this is deal text',
@@ -39,7 +39,8 @@ const sampleCombos = [
     }
 ];
 
-export default class BigBoiSeperator extends React.Component {
+export default class OffersAndContact extends React.Component {
+
     constructor(props) {
         super(props);
         this.entireSection = React.createRef();
@@ -112,6 +113,7 @@ export default class BigBoiSeperator extends React.Component {
     }
 
     render() {
+
         let winYOffset = this.props.windowYOffset;
         let coords = this.state.coords;
         let headerHolderClasses = 'headerHolder';
@@ -124,9 +126,7 @@ export default class BigBoiSeperator extends React.Component {
                 id={'contactSection'}
                 className="separator contact"
                 ref={this.entireSection}
-
             >
-
                 <div className={'mainBody'}>
                     <div id={'contactSectionLeft'} className={'sideSection'}>
                         <div className={'headerHolder'}
@@ -135,9 +135,10 @@ export default class BigBoiSeperator extends React.Component {
                             <div className={'header second'}>Offers</div>
                         </div>
 
-                        <div className={'rightSideText'}>
+                        <div className={'offersList'}>
+                            <div id={'offersInstruction'}>Click on any offer to have it added to your contact message. </div>
                             <ul>
-                                {sampleCombos.map((comboObj, i) => {
+                                {offers().map((comboObj, i) => {
                                     let classNames = 'comboSpecial';
                                     classNames += !!(this.state.selectedServicesByID[comboObj.id]) ? ' selected' : '';
                                     return (<li

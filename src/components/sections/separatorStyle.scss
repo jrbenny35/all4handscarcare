@@ -321,7 +321,7 @@
       background-attachment: scroll;
     }
     background-color: white;
-    background-image: url('../../images/darkMercedesdash.jpg');
+    background-image: url('../../assets/images/darkMercedesdash.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -356,7 +356,7 @@
   }
 
   &#exteriorServicesSection {
-    background-image: url('../../images/extBG3.jpg');
+    background-image: url('../../assets/images/extBG3.jpg');
 
 
     background-repeat: no-repeat;
@@ -368,7 +368,7 @@
     @media screen and (max-width: 800px) {
       background-attachment: scroll;
       background-position: 0;
-      background-image: url('../../images/mobileExtBG.jpg');
+      background-image: url('../../assets/images/mobileExtBG.jpg');
     }
 
     .headerHolder, .stickyHeaderHolder {
@@ -383,7 +383,7 @@
   }
 
   &#interiorServicesSection {
-    background-image: url('../../images/interiorBG1.jpg');
+    background-image: url('../../assets/images/interiorBG1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -683,7 +683,7 @@
         }
 
         &#contactSectionLeft {
-          background: url("../../images/contactLeftBG.jpg");
+          background: url("../../assets/images/contactLeftBG.jpg");
           background-attachment: fixed;
           background-repeat: no-repeat;
           background-position: left;
@@ -694,16 +694,25 @@
             flex: 0;
           }
 
-          .rightSideText {
+          .headerHolder {
+            flex: unset;
+          }
+
+          .offersList {
             display: flex;
             flex: .5;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             color: #f4f2f2;
             font-size: 1.5em;
             padding: 1em 0;
             background: transparent;
             transition: border-color .25s, background-color .25s;
+
+            #offersInstruction {
+              margin-bottom: 2em;
+            }
 
             ul {
               .comboSpecial {
@@ -753,7 +762,7 @@
         }
 
         &#contactSectionRight {
-          background-image: url('../../images/contactBG.jpg');
+          background-image: url('../../assets/images/contactBG.jpg');
           background-size: cover;
           align-items: center;
           justify-content: flex-start;
@@ -886,9 +895,16 @@
                     flex-direction: column;
                     align-items: flex-end;
                     justify-content: flex-end;
+                    border-bottom: solid 1px #cdcdcd;
                     @media screen and (max-width: 800px) {
                       align-items: center;
                       justify-content: center;
+
+                      .contactFormInput{
+                        &:nth-child(1){
+                         margin-bottom: 1em;
+                        }
+                      }
                     }
                   }
 
