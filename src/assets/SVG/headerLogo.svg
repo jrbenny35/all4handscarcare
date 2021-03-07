@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 759.04 531.62"><defs><style>.cls-1,.cls-4{font-size:200px;font-family:AvenirNextCondensed-Bold, Avenir Next Condensed;font-weight:700;}.cls-1,.cls-5,.cls-6{fill:#f4f2f2;}.cls-2{font-size:184px;fill:#31afb5;font-family:HeroNew-Hairline, Hero New;font-weight:100;}.cls-3{stroke:#31afb5;stroke-width:6px;}.cls-3,.cls-6{stroke-miterlimit:10;}.cls-4{fill:#d35635;}.cls-6{stroke:#f4f2f2;stroke-width:3px;}</style></defs><g id="Layer_2" data-name="Layer 2"><g id="Layer_8" data-name="Layer 8"><text class="cls-1" transform="translate(100.4 306.99)">HANDS</text><text class="cls-2" transform="translate(3 478.62)"><tspan class="cls-3">CAR</tspan><tspan class="cls-4" x="347.2" y="0">CARE</tspan></text><path class="cls-5" d="M86.9,141.6l-5.8-25.8H49.3l-5.8,25.8h-32L45.9,0H86.1l34.2,141.6ZM65.7,30.8h-.8L52.9,91H77.1Z"/><path class="cls-5" d="M132.7,141.6V0h32.4V112h37.8v29.6Z"/><path class="cls-5" d="M217.3,141.6V0h32.4V112h37.8v29.6Z"/><path class="cls-6" d="M303.87,4.29h65.51V8.71H308.66V70.35H367V75H308.66v65.88h-4.79Z"/><path class="cls-6" d="M396.81,73.33c0-40.66,28-69.92,64.77-69.92,36.62,0,64.77,29.26,64.77,69.92s-28.15,69.93-64.77,69.93C424.78,143.26,396.81,114,396.81,73.33Zm124.76,0c0-39.19-27.05-65.32-60-65.32-33.12,0-60,26.13-60,65.32s26.87,65.33,60,65.33C494.52,138.66,521.57,112.53,521.57,73.33Z"/><path class="cls-6" d="M553.78,91.92V5.07h4.78V92.29c0,28.7,16.38,46.37,42.33,46.37,26.12,0,42.87-17.67,42.87-46.56v-87h4.78V91.92c0,31.46-18.58,51.34-47.65,51.34C572,143.26,553.78,123.38,553.78,91.92Z"/><path class="cls-6" d="M750.5,141.6h-6.63L681.31,78.49h-.55V141.6H676V5.07h26.87c30.36,0,43.42,16.19,43.42,36.8,0,22.08-15.09,36.62-43.79,36.62H687.75ZM701.92,74.07c27.23,0,39.56-13.07,39.56-32.2,0-18.59-11.59-32.39-39-32.39H680.76V74.07Z"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 759.04 531.62">
+    <defs>
+        <style>.cls-1,.cls-4{font-size:200px;font-family:AvenirNextCondensed-Bold, Avenir Next
+            Condensed;font-weight:700;}.cls-1,.cls-5,.cls-6{fill:#f4f2f2;}.cls-2{font-size:184px;fill:#31afb5;font-family:HeroNew-Hairline,
+            Hero
+            New;font-weight:100;}.cls-3{stroke:#31afb5;stroke-width:6px;}.cls-3,.cls-6{stroke-miterlimit:10;}.cls-4{fill:#d35635;}.cls-6{stroke:#f4f2f2;stroke-width:3px;}
+        </style>
+    </defs>
+    <g id="Layer_2" data-name="Layer 2">
+        <g id="Layer_8" data-name="Layer 8">
+            <text class="cls-1" transform="translate(100.4 306.99)">HANDS</text>
+            <text class="cls-2" transform="translate(3 478.62)">
+                <tspan class="cls-3">CAR</tspan>
+                <tspan class="cls-4" x="347.2" y="0">CARE</tspan>
+            </text>
+            <path class="cls-5"
+                  d="M86.9,141.6l-5.8-25.8H49.3l-5.8,25.8h-32L45.9,0H86.1l34.2,141.6ZM65.7,30.8h-.8L52.9,91H77.1Z"/>
+            <path class="cls-5" d="M132.7,141.6V0h32.4V112h37.8v29.6Z"/>
+            <path class="cls-5" d="M217.3,141.6V0h32.4V112h37.8v29.6Z"/>
+            <path class="cls-6" d="M303.87,4.29h65.51V8.71H308.66V70.35H367V75H308.66v65.88h-4.79Z"/>
+            <path class="cls-6"
+                  d="M396.81,73.33c0-40.66,28-69.92,64.77-69.92,36.62,0,64.77,29.26,64.77,69.92s-28.15,69.93-64.77,69.93C424.78,143.26,396.81,114,396.81,73.33Zm124.76,0c0-39.19-27.05-65.32-60-65.32-33.12,0-60,26.13-60,65.32s26.87,65.33,60,65.33C494.52,138.66,521.57,112.53,521.57,73.33Z"/>
+            <path class="cls-6"
+                  d="M553.78,91.92V5.07h4.78V92.29c0,28.7,16.38,46.37,42.33,46.37,26.12,0,42.87-17.67,42.87-46.56v-87h4.78V91.92c0,31.46-18.58,51.34-47.65,51.34C572,143.26,553.78,123.38,553.78,91.92Z"/>
+            <path class="cls-6"
+                  d="M750.5,141.6h-6.63L681.31,78.49h-.55V141.6H676V5.07h26.87c30.36,0,43.42,16.19,43.42,36.8,0,22.08-15.09,36.62-43.79,36.62H687.75ZM701.92,74.07c27.23,0,39.56-13.07,39.56-32.2,0-18.59-11.59-32.39-39-32.39H680.76V74.07Z"/>
+        </g>
+    </g>
+</svg>
