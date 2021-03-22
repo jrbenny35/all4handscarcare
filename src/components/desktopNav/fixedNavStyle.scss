@@ -39,7 +39,7 @@
 
 
     &:hover {
-      color: #d6faf4;
+      color: #f3a18b;
       font-weight: 200;
     }
 
@@ -53,6 +53,10 @@
   &.top {
     .desktopNavLink {
       color: #f3a18b;
+      &:hover {
+        color: #d6faf4;
+        font-weight: 200;
+      }
     }
   }
 }

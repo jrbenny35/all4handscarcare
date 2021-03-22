@@ -330,7 +330,8 @@
     align-items: center;
 
     .logo {
-      max-width: 80vw;
+      max-width: 75vw;
+      max-height: 75vh;
       @media screen and (min-width: 2000px) {
         width: 50%;
       }
@@ -453,6 +454,21 @@
             min-width: 23em;
             @media screen and (max-width: 800px) {
               min-width: 20em;
+            }
+          }
+        }
+
+        &.interiorTier2 {
+          ul {
+            li {
+              list-style-type: none;
+              text-align: center;
+              .includesHolder{
+                margin-top:1em;
+                img{
+                  margin-left:.25em;
+                }
+              }
             }
           }
         }
@@ -784,9 +800,11 @@
             align-items: center;
             flex-direction: column;
             padding-top: .5em;
+            margin-bottom: 1.5em;
+            box-sizing: border-box;;
             @media screen and (max-width: 800px) {
               padding-top: 0;
-              margin-bottom: .5em;
+              margin-bottom: 1.5em;
             }
 
             .header {
@@ -848,6 +866,10 @@
                 background: transparent;
                 border: solid 1px white;
                 color: #afafaf;
+
+                @media screen and (max-width: 900px) {
+                  font-size: 1.7em;
+                }
               }
 
               &.top {
@@ -855,7 +877,7 @@
                   display: flex;
                   flex-direction: row;
                   width: 100%;
-                  @media screen and (max-width: 800px) {
+                  @media screen and (max-width: 1400px) {
                     flex-direction: column;
                   }
 
@@ -865,6 +887,7 @@
                     width: 80%;
                     justify-content: center;
                     align-items: center;
+                    margin-bottom: 1em;
 
                     .necessaryFieldIndicator {
                       height: .5em;
@@ -894,17 +917,12 @@
                     flex: 1;
                     flex-direction: column;
                     align-items: flex-end;
-                    justify-content: flex-end;
-                    border-bottom: solid 1px #cdcdcd;
-                    @media screen and (max-width: 800px) {
+                    justify-content: space-evenly;
+                    @media screen and (max-width: 1400px) {
                       align-items: center;
                       justify-content: center;
+                      border-bottom: solid 1px #cdcdcd;
 
-                      .contactFormInput{
-                        &:nth-child(1){
-                         margin-bottom: 1em;
-                        }
-                      }
                     }
                   }
 
@@ -918,6 +936,12 @@
                     input {
                       flex: 1;
                       margin: .75em;
+                      @media screen and (max-width: 900px){
+                        &:nth-child(1){
+                          margin-top:.5em;
+                        }
+                        margin: .25em;
+                      }
                     }
                   }
                 }
@@ -1009,18 +1033,28 @@
       width: 90%;
       align-items: center;
       justify-content: center;
+      height: 100%;
 
       .bottomButton {
+        display: flex;
         flex: 1;
+        height: 100%;
         align-items: center;
         justify-content: center;
         font-size: 3em;
         font-family: lust-script-display, sans-serif;
         color: white;
         cursor: pointer;
-        border-radius: 15px;
         text-shadow: 2px 3px 3px rgba(0, 0, 0, 0);
         transition: background-color .3s, text-shadow .3s;
+
+        &:nth-child(1) {
+          border-right: solid 1px white;
+        }
+
+        @media screen and (max-width: 900px) {
+          font-size: 2em;
+        }
 
         &:hover {
           text-shadow: 2px 3px 3px rgba(0, 0, 0, 0.3);

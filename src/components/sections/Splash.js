@@ -1,5 +1,6 @@
 import React from 'react';
 import logoImg from '../../assets/images/textLogoLightFont.png';
+import logoImgSvg from '../../assets/SVG/headerLogo.svg';
 
 export default class Splash extends React.Component {
     constructor(props) {
@@ -75,10 +76,9 @@ export default class Splash extends React.Component {
                 <img
                     alt={'logo'}
                     className={'logo'}
-                    src={logoImg}
+                    src={logoImgSvg}
                     ref={this.entireSection}
                 />
-
                 <div id={'slogan'}>When two hands aren't enough.</div>
             </div>
         )

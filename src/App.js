@@ -3,7 +3,7 @@ import './App.css';
 import {MobileNavButton, MobileNavMenu} from './components/mobileNavMenuAndButton/';
 import {DesktopNav} from './components/desktopNav/';
 import './components/sections';
-import {BlogAndBTT, About, Contact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/sections";
+import {BlogAndBTT, About, OffersAndContact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/sections";
 import AnchorLink from "react-anchor-link-smooth-scroll";
 
 import IDAcert from './assets/images/IDA_Logo_MB_CD_SV.png';
@@ -345,7 +345,7 @@ export default class App extends React.Component {
                         this.updateCoords('contactSection', coordObj);
                     }}
                 />
-                <Contact
+                <OffersAndContact
                     currentSection={this.state.currentSection}
                     sectionCoordinates={this.state.sectionCoordinates}
                     windowYOffset={this.state.windowYOffset}
