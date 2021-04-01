@@ -34,7 +34,7 @@ export default class About extends React.Component {
                                 coffee palo santo forage wayfarers beard. Flannel mustache church-key tote bag
                                 humblebrag viral. Leggings </p>
                             <div id={'aboutPic'}>
-                                <img id={'benPic'} src={benPic}/>
+                                <img id={'benPic'} src={benPic} alt={'Ben Forehand'}/>
                             </div>
                         </div>
                         <div id={'boldAboutText'}>

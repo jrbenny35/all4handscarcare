@@ -1,43 +1,6 @@
 import React from 'react';
-import offers from '../../assets/offers.js';
-const sampleCombos = [
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 1
-    }, {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 2
+import Offers from './Offers';
 
-    },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 3
-    },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 4
-    }, {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 5
-
-    },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 6
-    }
-];
 
 export default class OffersAndContact extends React.Component {
 
@@ -114,12 +77,12 @@ export default class OffersAndContact extends React.Component {
 
     render() {
 
-        let winYOffset = this.props.windowYOffset;
-        let coords = this.state.coords;
-        let headerHolderClasses = 'headerHolder';
-        if (winYOffset < (coords.bot - coords.headerHolderHeight) && winYOffset > coords.top) {
-            headerHolderClasses += ' sticky';
-        }
+        // let winYOffset = this.props.windowYOffset;
+        // let coords = this.state.coords;
+        // let headerHolderClasses = 'headerHolder';
+        // if (winYOffset < (coords.bot - coords.headerHolderHeight) && winYOffset > coords.top) {
+        //     headerHolderClasses += ' sticky';
+        // }
 
         return (
             <div
@@ -128,65 +91,7 @@ export default class OffersAndContact extends React.Component {
                 ref={this.entireSection}
             >
                 <div className={'mainBody'}>
-                    <div id={'contactSectionLeft'} className={'sideSection'}>
-                        <div className={'headerHolder'}
-                             ref={this.headerHolder}>
-                            <div className={'header'}>Special</div>
-                            <div className={'header second'}>Offers</div>
-                        </div>
-
-                        <div className={'offersList'}>
-                            <div id={'offersInstruction'}>Click on any offer to have it added to your contact message. </div>
-                            <ul>
-                                {offers().map((comboObj, i) => {
-                                    let classNames = 'comboSpecial';
-                                    classNames += !!(this.state.selectedServicesByID[comboObj.id]) ? ' selected' : '';
-                                    return (<li
-                                        key={i}
-                                        className={classNames}
-                                        onClick={() => {
-                                            let selectedServicesByID = this.state.selectedServicesByID;
-                                            let selectedServices = this.state.selectedServices;
-
-                                            if (selectedServicesByID[comboObj.id]) {
-                                                //remove
-                                                selectedServices.splice(comboObj.arrayIndex, 1);
-                                                delete selectedServicesByID[comboObj.id];
-
-                                                this.setState({
-                                                    selectedServices: selectedServices,
-                                                    selectedServicesByID: selectedServicesByID
-                                                });
-                                            } else {
-                                                //add
-                                                comboObj.arrayIndex = selectedServices.length;
-                                                selectedServices.push(comboObj);
-                                                selectedServicesByID[comboObj.id] = comboObj;
-
-                                                this.setState({
-                                                    selectedServices: selectedServices,
-                                                    selectedServicesByID: selectedServicesByID
-                                                });
-                                            }
-
-                                        }}
-                                    >
-                                                <span
-                                                    className={'comboText'}
-                                                >
-                                                    {comboObj.text}
-                                                </span>
-                                        <span className={'comboPrice'}>
-                                                    {comboObj.price}
-                                                </span>
-                                        <span className={'discountedPrice'}>
-                                                    {comboObj.discountedPrice}
-                                                </span>
-                                    </li>);
-                                })}
-                            </ul>
-                        </div>
-                    </div>
+                    <Offers/>
 
                     <div id={'contactSectionRight'} className={'sideSection'}>
                         <div className={'headerHolder'}

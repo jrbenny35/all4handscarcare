@@ -29,7 +29,6 @@ export default class InteriorServices extends React.Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-
         if (this.state.allowUpdate) {
             clearTimeout(this.localTimeout);
             let localCoords = this.state.coords;
@@ -113,22 +112,12 @@ export default class InteriorServices extends React.Component {
                                     <span className={'levelText'}>Tier </span>
                                     <img alt={'tier 1 icon'} src={icon1}/>
                                 </div>
-                                {/*<div className={'headerSubtitle'}>*/}
-                                {/*    &#8226; Because of our attention to detail, this tier will suffice for <span*/}
-                                {/*    className={'subtitleEmphasis'}>most</span> situations &#8226;*/}
-                                {/*</div>*/}
                             </div>
                             <div id={'tier1ULHolder'}>
                                 <ul>
                                     <li>Trash removed from vehicle</li>
                                     <li>Vacuum of seats and carpets</li>
                                     <li>Cleaning of vents</li>
-                                    {/*<li>Interactive/Touch Surfaces</li>*/}
-                                    {/*<ul>*/}
-                                    {/*    <li>Thoroughly Cleaned</li>*/}
-                                    {/*    <li>Sanitized</li>*/}
-                                    {/*</ul>*/}
-
                                 </ul>
                                 <ul>
                                     <li>Leather Seats cleaned lightly</li>
@@ -165,11 +154,6 @@ export default class InteriorServices extends React.Component {
                                     <span className={'levelText'}>Tier </span>
                                     <img alt={'tier 2 icon'} src={icon2}/>
                                 </div>
-                                {/*<div className={'headerSubtitle'}>*/}
-                                {/*    &#8226; This is for those <span*/}
-                                {/*    className={'subtitleEmphasis'}>serious</span> situations*/}
-                                {/*    where special attention is needed &#8226;*/}
-                                {/*</div>*/}
                             </div>
 
                             <ul>

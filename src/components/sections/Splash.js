@@ -1,5 +1,4 @@
 import React from 'react';
-import logoImg from '../../assets/images/textLogoLightFont.png';
 import logoImgSvg from '../../assets/SVG/headerLogo.svg';
 
 export default class Splash extends React.Component {

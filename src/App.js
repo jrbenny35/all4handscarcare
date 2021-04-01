@@ -1,50 +1,49 @@
 import React from 'react';
 import './App.css';
-import {MobileNavButton, MobileNavMenu} from './components/mobileNavMenuAndButton/';
 import {DesktopNav} from './components/desktopNav/';
+import {MobileNavButton, MobileNavMenu} from './components/mobileNavMenuAndButton/';
 import './components/sections';
-import {BlogAndBTT, About, OffersAndContact, ExteriorServices, Splash, Blog, InteriorServices} from "./components/sections";
-import AnchorLink from "react-anchor-link-smooth-scroll";
+import {BottomButtons, About, OffersAndContact, ExteriorServices, Splash, InteriorServices} from "./components/sections";
 
 import IDAcert from './assets/images/IDA_Logo_MB_CD_SV.png';
 
-function posY(elm) {
-    var test = elm, top = 0;
+// function posY(elm) {
+//     var test = elm, top = 0;
+//
+//     while (!!test && test.tagName.toLowerCase() !== "body") {
+//         top += test.offsetTop;
+//         test = test.offsetParent;
+//     }
+//
+//     return top;
+// }
+//
+// function viewPortHeight() {
+//     var de = document.documentElement;
+//
+//     if (!!window.innerWidth) {
+//         return window.innerHeight;
+//     } else if (de && !isNaN(de.clientHeight)) {
+//         return de.clientHeight;
+//     }
+//
+//     return 0;
+// }
+//
+// function scrollY() {
+//     if (window.pageYOffset) {
+//         return window.pageYOffset;
+//     }
+//     return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+// }
 
-    while (!!test && test.tagName.toLowerCase() !== "body") {
-        top += test.offsetTop;
-        test = test.offsetParent;
-    }
-
-    return top;
-}
-
-function viewPortHeight() {
-    var de = document.documentElement;
-
-    if (!!window.innerWidth) {
-        return window.innerHeight;
-    } else if (de && !isNaN(de.clientHeight)) {
-        return de.clientHeight;
-    }
-
-    return 0;
-}
-
-function scrollY() {
-    if (window.pageYOffset) {
-        return window.pageYOffset;
-    }
-    return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
-}
-
-function checkvisible(elm) {
-    var vpH = viewPortHeight(), // Viewport Height
-        st = scrollY(), // Scroll Top
-        y = posY(elm);
-
-    return (y > (vpH + st));
-}
+// function checkvisible(elm) {
+//     var vpH = viewPortHeight(), // Viewport Height
+//         st = scrollY(), // Scroll Top
+//         y = posY(elm);
+//
+//     return (y > (vpH + st));
+// }
 
 
 export default class App extends React.Component {
@@ -381,7 +380,7 @@ export default class App extends React.Component {
                         this.updateCoords('interiorServicesSection', coordObj);
                     }}
                 />
-                <BlogAndBTT
+                <BottomButtons
                     backToTop={() => {
                         this.scrollToSection('splash');
                     }}
@@ -393,6 +392,7 @@ export default class App extends React.Component {
                 <img
                     id={'IDA_cert'}
                     src={IDAcert}
+                    alt={'IDA Certification'}
                     onClick={()=>{
                         window.open('https://the-ida.com/page/About_Us');
 
