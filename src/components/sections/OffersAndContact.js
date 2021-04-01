@@ -1,5 +1,6 @@
 import React from 'react';
 import Offers from './Offers';
+import Contact from './Contact';
 
 
 export default class OffersAndContact extends React.Component {
@@ -22,57 +23,8 @@ export default class OffersAndContact extends React.Component {
             selectedServicesByID: {},
             selectedServices: []
         };
-        this.updateCoords = this.updateCoords.bind(this);
         this.localTimeout = () => {
         };
-    }
-
-    componentDidMount() {
-        if (this.props.reportDistance) {
-            this.updateCoords();
-        }
-    }
-
-    componentWillReceiveProps(nextProps, nextContext) {
-
-        if (this.state.allowUpdate) {
-            clearTimeout(this.localTimeout);
-            let localCoords = this.state.coords;
-            let elm = this.entireSection.current;
-            let offsetTop = elm.offsetTop;
-            let offsetHeight = elm.offsetHeight;
-            let coordObj = {
-                top: offsetTop,
-                bot: offsetTop + offsetHeight,
-                height: offsetHeight,
-                halfCheckDistance: (offsetTop + (offsetHeight * .5))
-            };
-            if (localCoords.bot && (localCoords.bot !== coordObj.bot)) {
-                this.updateCoords()
-            }
-            this.setState({allowUpdate: false}, () => {
-                this.localTimeout = setTimeout(() => {
-                    this.setState({allowUpdate: true});
-                }, 250);
-            })
-
-        }
-    }
-
-    updateCoords() {
-        let section = this.entireSection.current;
-        let headerHolder = this.headerHolder.current;
-        let offsetTop = section.offsetTop;
-        let offsetHeight = section.offsetHeight;
-        let coordObj = {
-            top: offsetTop,
-            bot: offsetTop + offsetHeight,
-            height: offsetHeight,
-            headerHolderHeight: headerHolder.offsetHeight,
-            halfCheckDistance: (offsetTop + (offsetHeight * .5))
-        };
-        this.setState({coords: coordObj});
-        this.props.updateCoords(coordObj)
     }
 
     render() {
@@ -92,136 +44,7 @@ export default class OffersAndContact extends React.Component {
             >
                 <div className={'mainBody'}>
                     <Offers/>
-
-                    <div id={'contactSectionRight'} className={'sideSection'}>
-                        <div className={'headerHolder'}
-                             ref={this.headerHolder}>
-                            <div className={'header'}>Schedule</div>
-                        </div>
-                        <div id={'actualForm'}>
-                            {/*<div id={'formHeader1'}>Let's talk</div>*/}
-                            <div className={'formSection top'}>
-                                <div id={'formInputs'}>
-                                    <div id={'nameAndNumber'}>
-                                        <div className={'necessaryFieldHolder'}>
-                                            <input
-                                                type={'text'}
-                                                className={'contactFormInput'}
-                                                id={'nameInput'}
-                                                placeholder={'Name'}
-                                                value={this.state.name}
-                                                onChange={(e) => {
-                                                    let val = e.target.value;
-                                                    this.setState({name: val})
-                                                }}
-                                            />
-                                            <div
-                                                className={('necessaryFieldIndicator' + (this.state.name.length !== 0 ? ' valid' : ''))}/>
-
-                                        </div>
-                                        <div className={'necessaryFieldHolder'}>
-                                            <input
-                                                type={'input'}
-                                                className={'contactFormInput'}
-                                                id={'numberInput'}
-                                                placeholder={'Number'}
-                                                value={this.state.phoneNumberDisplayed}
-                                                onChange={(e) => {
-                                                    let val = e.target.value;
-
-                                                    //pure numbers
-                                                    let newNumberValue = val.replace(/\D/g, '');
-                                                    let displayedNumber = newNumberValue;
-                                                    let length = newNumberValue.length;
-                                                    if (length === 0) {
-                                                        displayedNumber = '';
-                                                    } else if (length <= 3) {
-                                                        //12
-                                                        // -> (12)
-                                                        displayedNumber = '(' + displayedNumber;
-                                                    } else if (length <= 6) {
-                                                        displayedNumber = '(' + newNumberValue.substring(0, 3) + ') ' + newNumberValue.substring(3);
-                                                    } else if (length <= 10) {
-                                                        displayedNumber = '(' + newNumberValue.substring(0, 3) + ') ' + newNumberValue.substring(3, 6) + '-' + newNumberValue.substring(6);
-                                                    } else {
-                                                        return;
-                                                    }
-
-                                                    console.log(newNumberValue);
-                                                    this.setState({
-                                                        phoneNumber: newNumberValue,
-                                                        phoneNumberDisplayed: displayedNumber
-                                                    });
-                                                }}
-                                            />
-                                            <div
-                                                className={('necessaryFieldIndicator' + (this.state.phoneNumber.length === 10 ? ' valid' : ''))}/>
-                                        </div>
-                                    </div>
-                                    <div id={'makeModelHolder'}>
-                                        <input
-                                            type={'text'}
-                                            className={'contactFormInput'}
-                                            id={'make'}
-                                            placeholder={'Make'}
-                                            value={this.state.make}
-                                            onChange={(e) => {
-                                                let val = e.target.value;
-                                                this.setState({make: val})
-                                            }}
-                                        />
-                                        <input
-                                            type={'text'}
-                                            className={'contactFormInput'}
-                                            id={'year'}
-                                            placeholder={'Year'}
-                                            value={this.state.year}
-                                            onChange={(e) => {
-                                                let val = e.target.value;
-                                                let numericalYearValue = val.replace(/\D/g, '');
-                                                if (numericalYearValue.length > 4) {
-                                                    numericalYearValue = numericalYearValue.substring(0, 3);
-                                                }
-                                                this.setState({year: numericalYearValue})
-                                            }}
-                                        />
-                                        <input
-                                            type={'text'}
-                                            className={'contactFormInput'}
-                                            id={'model'}
-                                            placeholder={'Model'}
-                                            value={this.state.model}
-                                            onChange={(e) => {
-                                                let val = e.target.value;
-                                                this.setState({model: val})
-                                            }}
-                                        />
-                                    </div>
-                                </div>
-                                <div id={'selectedServices'}>
-                                    <div id={'selectedServicesHeader'}>Selected Combos</div>
-                                    <div id={'selectionsHolder'}>
-                                        {this.state.selectedServices.map((combo) => {
-                                            return (
-                                                <div>{combo.text}</div>
-                                            )
-                                        })}
-                                    </div>
-                                </div>
-                                <div id={'disclaimer'}>
-                                    We'll discuss availability when scheduling your appointment.
-                                    {/*Selecting a date does not guarantee its availability*/}
-                                </div>
-                            </div>
-
-
-                            <div className={'formSection bottom'}>
-                                <div className={'contactBotSection sendHolder'}>
-                                    <button>Send</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <Contact/>
                 </div>
             </div>
         )

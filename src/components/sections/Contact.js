@@ -21,20 +21,20 @@ const ACTIONS = {
 function formReducer(state, action) {
     switch (action.type) {
         case ACTIONS.UPDATE_NAME:
-            state.name = action.name;
+            state.name = action.value;
             return {...state}
         case ACTIONS.UPDATE_PHONE_NUMBER:
             state.phoneNumber = action.phoneNumber;
             state.phoneNumberDisplayed = action.phoneNumberDisplayed;
             return {...state}
         case ACTIONS.UPDATE_MAKE:
-            state.make = action.make;
+            state.make = action.value;
             return {...state}
         case ACTIONS.UPDATE_MODEL:
-            state.model = action.model;
+            state.model = action.value;
             return {...state}
         case ACTIONS.UPDATE_YEAR:
-            state.year = action.year;
+            state.year = action.value;
             return {...state}
         default:
             return state;
@@ -60,8 +60,7 @@ export default function Contact() {
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
     return (
         <div id={'contactSectionRight'} className={'sideSection'}>
-            <div className={'headerHolder'}
-                 ref={this.headerHolder}>
+            <div className={'headerHolder'}>
                 <div className={'header'}>Schedule</div>
             </div>
             <div id={'actualForm'}>
@@ -72,18 +71,20 @@ export default function Contact() {
                                 {Input('nameInput', 'Name', formState.name, (e) => {
                                     dispatch({type: ACTIONS.UPDATE_NAME, value: e.target.value})
                                 })}
-                                <div className={('necessaryFieldIndicator' + (this.state.name.length !== 0 ? ' valid' : ''))}/>
+                                <div className={('necessaryFieldIndicator' + (formState.name.length !== 0 ? ' valid' : ''))}/>
                             </div>
                             <div className={'necessaryFieldHolder'}>
                                 {Input('numberInput', 'Phone Number', formState.phoneNumber, (e) => {
                                     let numbers = getPhoneNumber(e.target.value);
-                                    dispatch({
-                                        type: ACTIONS.UPDATE_PHONE_NUMBER,
-                                        phoneNumber: numbers.phoneNumber,
-                                        phoneNumberDisplayed: numbers.phoneNumberDisplayed
-                                    });
+                                    if(numbers) {
+                                        dispatch({
+                                            type: ACTIONS.UPDATE_PHONE_NUMBER,
+                                            phoneNumber: numbers.phoneNumber,
+                                            phoneNumberDisplayed: numbers.phoneNumberDisplayed
+                                        });
+                                    }
                                 })}
-                                <div className={('necessaryFieldIndicator' + (this.state.phoneNumber.length === 10 ? ' valid' : ''))}/>
+                                <div className={('necessaryFieldIndicator' + (formState.phoneNumber.length === 10 ? ' valid' : ''))}/>
                             </div>
                         </div>
                         <div id={'makeModelHolder'}>
