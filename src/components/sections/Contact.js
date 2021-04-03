@@ -117,6 +117,16 @@ export default function Contact({selectedOffers}) {
                             }
                         </div>
                     </div>
+                    <div id={'addOns'}>
+                        <div id={'addOnsHeader'}>Add-Ons</div>
+                        <div id={'addOnsHolder'}>
+                            {addOnArray.map((offer) => {
+                                return (
+                                    <div className={'addOnItem'}>{offer.text}</div>
+                                )
+                            })}
+                        </div>
+                    </div>
                     <div id={'disclaimer'}>
                         We'll discuss availability when scheduling your appointment.
                     </div>
@@ -167,3 +177,32 @@ function getPhoneNumber(val) {
         phoneNumberDisplayed: displayedNumber
     };
 }
+
+
+
+const addOnArray = [
+    {
+        text: 'Back Rub',
+        price: 5
+    }, {
+        text: '_Sensual_ Back Rub',
+        price: 50
+
+    },
+    {
+        text: 'Little tree air freshner',
+        price: 5
+    },
+    {
+        text: 'Big tree air freshner',
+        price: 10
+    }, {
+        text: 'steering wheel re-calibration',
+        price: 500
+
+    },
+    {
+        text: 'fish sandwich',
+        price: 10,
+    }
+];
