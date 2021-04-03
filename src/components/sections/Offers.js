@@ -1,7 +1,6 @@
 import React, {useReducer} from 'react';
 
-export default function Offers() {
-    const [offersState, dispatch] = useReducer(reducer_selectedServices, initialState);
+export default function Offers({dispatch, offersState, ACTIONS}) {
 
     return (
         <div id={'contactSectionLeft'} className={'sideSection'}>
@@ -36,67 +35,5 @@ export default function Offers() {
     );
 }
 
-const offersArray = [
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 1
-    }, {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 2
 
-    },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 3
-    },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 4
-    }, {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 5
-
-    },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 6
-    }
-];
-
-
-const ACTIONS = {
-    SELECT_OFFER: 'selectOffer',
-    REMOVE_OFFER: 'removeService'
-}
-const initialState = {
-    allOffers: offersArray,
-    selectedOffersByID: {}
-};
-
-function reducer_selectedServices(state, action) {
-    switch (action.type) {
-        case ACTIONS.SELECT_OFFER:
-            state.allOffers[action.arrayIndex].selected = true;
-            state.selectedOffersByID[action.offerObject.id] = true;
-            return {...state};
-        case ACTIONS.REMOVE_OFFER:
-            state.allOffers[action.arrayIndex].selected = false;
-            state.selectedOffersByID[action.offerObject.id] = false;
-            return {...state};
-        default:
-            return state;
-    }
-}
 

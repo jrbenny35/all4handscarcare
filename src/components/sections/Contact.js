@@ -56,7 +56,7 @@ function Input(id, placeholder, value, onChange, customClasses) {
     )
 }
 
-export default function Contact() {
+export default function Contact({selectedOffers}) {
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
     return (
         <div id={'contactSectionRight'} className={'sideSection'}>
@@ -107,13 +107,11 @@ export default function Contact() {
                     <div id={'selectedServices'}>
                         <div id={'selectedServicesHeader'}>Selected Combos</div>
                         <div id={'selectionsHolder'}>
-
-                            SELECTED SERVICES LIVE HERE
-                            {/*{this.state.selectedServices.map((combo) => {*/}
-                            {/*    return (*/}
-                            {/*        <div>{combo.text}</div>*/}
-                            {/*    )*/}
-                            {/*})}*/}
+                            {selectedOffers.map((offer) => {
+                                return (
+                                    <div>{offer.text}</div>
+                                )
+                            })}
                         </div>
                     </div>
                     <div id={'disclaimer'}>
