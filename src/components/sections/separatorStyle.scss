@@ -953,14 +953,15 @@
                   align-items: center;
                   border: solid 1px white;
                   width: 80%;
-                  height: 15em;
+                  height: auto;
                   color: #afafaf;
                   margin: 1em 0;
 
                   #selectedServicesHeader {
                     color: #afafaf;
                     font-size: 1.1em;
-                    font-weight: 200;
+                    font-weight: 400;
+                    border-bottom: solid 1px rgba(255, 255, 255, 0.58);
                   }
                 }
 

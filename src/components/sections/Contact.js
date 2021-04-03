@@ -105,13 +105,16 @@ export default function Contact({selectedOffers}) {
                         </div>
                     </div>
                     <div id={'selectedServices'}>
-                        <div id={'selectedServicesHeader'}>Selected Combos</div>
+                        <div id={'selectedServicesHeader'}>Selected Offers</div>
                         <div id={'selectionsHolder'}>
-                            {selectedOffers.map((offer) => {
+                            {!!(selectedOffers.length) && selectedOffers.map((offer) => {
                                 return (
                                     <div>{offer.text}</div>
                                 )
                             })}
+                            {!(selectedOffers.length) &&
+                            <span>You've haven't selected any offers</span>
+                            }
                         </div>
                     </div>
                     <div id={'disclaimer'}>
