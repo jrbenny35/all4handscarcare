@@ -15,7 +15,9 @@ const ACTIONS = {
     UPDATE_PHONE_NUMBER: 'updatePhoneNumber',
     UPDATE_MAKE: 'updateMake',
     UPDATE_MODEL: 'updateModel',
-    UPDATE_YEAR: 'updateYear'
+    UPDATE_YEAR: 'updateYear',
+    ADD_ADD_ON: 'addAddOn',
+    REMOVE_ADD_ON: 'removeAddOn'
 }
 
 function formReducer(state, action) {
@@ -41,6 +43,20 @@ function formReducer(state, action) {
     }
 }
 
+function addOnReducer(state, action) {
+    switch (action.type) {
+        case ACTIONS.ADD_ADD_ON:
+            state[action.key].selected = true;
+            return {...state}
+        case ACTIONS.REMOVE_ADD_ON:
+            state[action.key].selected = false;
+            return {...state}
+        default:
+            return state;
+    }
+}
+
+
 function Input(id, placeholder, value, onChange, customClasses) {
     return (
         <input
@@ -56,8 +72,10 @@ function Input(id, placeholder, value, onChange, customClasses) {
     )
 }
 
+
 export default function Contact({selectedOffers}) {
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
+    const [addOnState, addOnDispatch] = useReducer(addOnReducer, addOnObject);
     return (
         <div id={'contactSectionRight'} className={'sideSection'}>
             <div className={'headerHolder'}>
@@ -71,12 +89,13 @@ export default function Contact({selectedOffers}) {
                                 {Input('nameInput', 'Name', formState.name, (e) => {
                                     dispatch({type: ACTIONS.UPDATE_NAME, value: e.target.value})
                                 })}
-                                <div className={('necessaryFieldIndicator' + (formState.name.length !== 0 ? ' valid' : ''))}/>
+                                <div
+                                    className={('necessaryFieldIndicator' + (formState.name.length !== 0 ? ' valid' : ''))}/>
                             </div>
                             <div className={'necessaryFieldHolder'}>
                                 {Input('numberInput', 'Phone Number', formState.phoneNumber, (e) => {
                                     let numbers = getPhoneNumber(e.target.value);
-                                    if(numbers) {
+                                    if (numbers) {
                                         dispatch({
                                             type: ACTIONS.UPDATE_PHONE_NUMBER,
                                             phoneNumber: numbers.phoneNumber,
@@ -84,7 +103,8 @@ export default function Contact({selectedOffers}) {
                                         });
                                     }
                                 })}
-                                <div className={('necessaryFieldIndicator' + (formState.phoneNumber.length === 10 ? ' valid' : ''))}/>
+                                <div
+                                    className={('necessaryFieldIndicator' + (formState.phoneNumber.length === 10 ? ' valid' : ''))}/>
                             </div>
                         </div>
                         <div id={'makeModelHolder'}>
@@ -120,9 +140,17 @@ export default function Contact({selectedOffers}) {
                     <div id={'addOns'}>
                         <div id={'addOnsHeader'}>Add-Ons</div>
                         <div id={'addOnsHolder'}>
-                            {addOnArray.map((offer) => {
+                            {Object.keys(addOnObject).map((key) => {
+                                const selected = addOnObject[key].selected
+                                const selectedClass = selected ? ' selected' : '';
                                 return (
-                                    <div className={'addOnItem'}>{offer.text}</div>
+                                    <div
+                                        className={'addOnItem' + selectedClass}
+                                        onClick={() => {
+                                            let ACTION = selected ? ACTIONS.REMOVE_ADD_ON : ACTIONS.ADD_ADD_ON;
+                                            addOnDispatch({type: ACTION, key: key})
+                                        }}
+                                    >{key}</div>
                                 )
                             })}
                         </div>
@@ -178,31 +206,32 @@ function getPhoneNumber(val) {
     };
 }
 
+const addOnObject = {
+    'Back Rub': {
+        price: 5,
+        selected: false
 
-
-const addOnArray = [
-    {
-        text: 'Back Rub',
-        price: 5
-    }, {
-        text: '_Sensual_ Back Rub',
-        price: 50
-
-    },
-    {
-        text: 'Little tree air freshner',
-        price: 5
-    },
-    {
-        text: 'Big tree air freshner',
-        price: 10
-    }, {
-        text: 'steering wheel re-calibration',
-        price: 500
+    }, 'Special Back Rub': {
+        price: 50,
+        selected: false
 
     },
-    {
-        text: 'fish sandwich',
+    'Little tree air freshner': {
+        price: 5,
+        selected: false
+    },
+    'Big tree air freshner': {
         price: 10,
+        selected: false
+
+    },
+    'steering wheel re-calibration': {
+        price: 500,
+        selected: false
+    },
+    'fish sandwich': {
+        price: 10,
+        selected: false
     }
-];
+}
+

@@ -70,10 +70,11 @@
   .stickyHeaderHolder {
     opacity: 0;
     transition: opacity .2s;
-
+    pointer-events: none;
     &.visible {
       display: flex;
       opacity: 1;
+      pointer-events: all;
     }
 
     flex: .25 1;
@@ -964,6 +965,7 @@
                     font-size: 1.1em;
                     font-weight: 400;
                     border-bottom: solid 1px rgba(255, 255, 255, 0.55);
+                    padding: .5em 0;
                   }
                 }
 
@@ -983,6 +985,7 @@
                     font-size: 1.1em;
                     font-weight: 400;
                     border-bottom: solid 1px rgba(255, 255, 255, 0.5);
+                    padding: .5em 0;
                   }
 
                   #addOnsHolder {
@@ -993,7 +996,7 @@
                       font-size: .9em;
                       align-items: center;
                       width: 40%;
-                      min-height: 3em;
+                      min-height: 5em;
                       border: solid 2px #46dc46;
                       border-radius: 10px;
                       vertical-align: top;
@@ -1002,6 +1005,17 @@
                       margin: 1em;
                       font-weight: 400;
                       cursor: pointer;
+                      transition: background-color .25s;
+                      user-select: none;
+                      &.selected{
+                        background-color: rgba(89, 161, 89, 0.47);
+                      }
+
+                      @media screen and (max-width: 800px) {
+                        font-size: .75em;
+                        width: 80%;
+                        min-height: 2em;
+                      }
                     }
                   }
                 }
