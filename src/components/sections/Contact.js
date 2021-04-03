@@ -88,9 +88,9 @@ export default function Contact({selectedOffers}) {
                             <div className={'necessaryFieldHolder'}>
                                 {Input('nameInput', 'Name', formState.name, (e) => {
                                     dispatch({type: ACTIONS.UPDATE_NAME, value: e.target.value})
-                                })}
-                                <div
-                                    className={('necessaryFieldIndicator' + (formState.name.length !== 0 ? ' valid' : ''))}/>
+                                }, ('necessaryInput' + (formState.name.length !== 0 ? ' valid' : '')))}
+                                {/*<div*/}
+                                {/*    className={('necessaryFieldIndicator' + (formState.name.length !== 0 ? ' valid' : ''))}/>*/}
                             </div>
                             <div className={'necessaryFieldHolder'}>
                                 {Input('numberInput', 'Phone Number', formState.phoneNumber, (e) => {
@@ -102,9 +102,9 @@ export default function Contact({selectedOffers}) {
                                             phoneNumberDisplayed: numbers.phoneNumberDisplayed
                                         });
                                     }
-                                })}
-                                <div
-                                    className={('necessaryFieldIndicator' + (formState.phoneNumber.length === 10 ? ' valid' : ''))}/>
+                                }, ('necessaryInput' + (formState.phoneNumber.length === 10 ? ' valid' : '')))}
+                                {/*<div*/}
+                                {/*    className={('necessaryFieldIndicator' + (formState.phoneNumber.length === 10 ? ' valid' : ''))}/>*/}
                             </div>
                         </div>
                         <div id={'makeModelHolder'}>

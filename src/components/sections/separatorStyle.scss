@@ -586,7 +586,7 @@
           flex-direction: row;
           align-items: center;
           justify-content: center;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 1300px) {
             flex-direction: column;
             font-size: 1.5em;
           }
@@ -639,10 +639,9 @@
     display: flex;
     flex-direction: row;
     border-top: solid 2px white;
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1300px) {
       height: auto;
       min-height: unset;
-
     }
     @media screen and (min-width: 2000px) {
       min-height: unset;
@@ -657,8 +656,9 @@
       flex: unset;
       width: 100%;
 
-      @media screen and (max-width: 800px) {
+      @media screen and (max-width: 1300px) {
         min-height: 200vh;
+        width:100%;
         flex-direction: column;
       }
       @media screen and (max-width: 1800px) {
@@ -695,7 +695,7 @@
         flex-direction: column;
         width: 50%;
         flex: unset;
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 1300px) {
           flex: 0 1;
           height: 100vh;
           width: 100%;
@@ -708,7 +708,7 @@
           background-position: left;
           background-size: contain;
           flex: 1;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 1300px) {
             background-size: cover;
             flex: 0;
           }
@@ -788,12 +788,12 @@
           background-attachment: fixed;
           flex-direction: column;
           flex: 1.75;
-          @media screen and (max-width: 800px) {
+          @media screen and (max-width: 1300px) {
             background-size: cover;
             display: flex;
             flex: none;
             height: auto;
-            padding-bottom: 5em;
+            padding: 1em 0 4em 0;
           }
 
           .headerHolder {
@@ -834,7 +834,7 @@
             }
 
             @media screen and (min-width: 2000px) {
-              height: 60em;
+              min-height: 60em;
               margin: 3em 0;
             }
 
@@ -892,26 +892,17 @@
                     align-items: center;
                     margin-bottom: 1em;
 
-                    .necessaryFieldIndicator {
-                      height: .5em;
-                      width: .5em;
+                    .necessaryInput{
                       border: solid 2px;
                       border-color: orange;
-                      border-radius: 50%;
-                      display: flex;
-                      background-color: transparent;
-                      transition: border-color .25s, background-color .25s;
-                      margin-left: .5em;
-
+                      transition: border-color .25s, background-color .25s, font-weight .25s, color .25s;
                       &.valid {
-                        border-color: green;
-                        background-color: green;
+                        border-color: #4ad04a;
+                        background-color: rgba(135, 238, 135, 0.43);
+                        font-weight: 400;
+                        color: white;
                       }
 
-                      &.invalid {
-                        border-color: red;
-                        background-color: red;
-                      }
                     }
                   }
 
@@ -1050,8 +1041,8 @@
                     flex: .5;
 
                     button {
-                      width: 4.5em;
-                      height: 2em;
+                      width: 6.5em;
+                      height: 2.5em;
                       border-radius: 16px;
                       background: #6dbac6;;
                       border: solid 2px white;
@@ -1066,6 +1057,9 @@
                       letter-spacing: 1px;
                       cursor: pointer;
                       user-select: none;
+                      @media screen and (max-width: 1000px){
+                        width: 5.5em;
+                      }
                     }
                   }
                 }
