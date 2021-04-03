@@ -155,9 +155,9 @@ export default function Contact({selectedOffers}) {
                             })}
                         </div>
                     </div>
-                    <div id={'disclaimer'}>
-                        We'll discuss availability when scheduling your appointment.
-                    </div>
+                    {/*<div id={'disclaimer'}>*/}
+                    {/*    We'll discuss availability when scheduling your appointment.*/}
+                    {/*</div>*/}
                 </div>
                 <div className={'formSection bottom'}>
                     <div className={'contactBotSection sendHolder'}>
