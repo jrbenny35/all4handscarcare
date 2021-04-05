@@ -161,25 +161,41 @@ export default function Contact({selectedOffers}) {
                 </div>
                 <div className={'formSection bottom'}>
                     <div className={'contactBotSection sendHolder'}>
-                        <button>Send</button>
+                        <button onClick={e=>{sendEmail(e)}}>Send</button>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
 
 
-function sendEmail(e) {
-    e.preventDefault();
 
-    emailjs.sendForm('service_r317n9j', 'template_3vdhg3h', e.target, 'user_bmGQziAe7CejBZhHyXZm6')
-        .then((result) => {
-            console.log(result.text);
-        }, (error) => {
-            console.log(error.text);
+
+    function sendEmail(e) {
+        e.preventDefault();
+        let addOns = []
+        Object.keys(addOnObject).forEach((key) => {
+            if(addOnObject[key].selected){
+                let str = key + ' priced at ' + addOnObject[key].price;
+                console.log(str);
+                addOns.push(str);
+            }
         });
+        let offers = [];
+        selectedOffers.forEach((offer) => {
+            let str = offer.text + ' priced at ' + offer.price + ' DISCOUNTED to ' + offer.discountedPrice
+            offers.push(str);
+        });
+        let data = {...formState, addOns: addOns, offers: offers}
+        emailjs.send('service_r317n9j', 'A4H_template', data, 'user_bmGQziAe7CejBZhHyXZm6')
+            .then(function(response) {
+            }, function(error) {
+                console.log('FAILED...', error);
+            });
+    }
 }
+
+
 
 function getPhoneNumber(val) {
     //pure numbers
