@@ -150,6 +150,7 @@ export default function Contact({selectedOffers}) {
                                             let ACTION = selected ? ACTIONS.REMOVE_ADD_ON : ACTIONS.ADD_ADD_ON;
                                             addOnDispatch({type: ACTION, key: key})
                                         }}
+                                        tabIndex={0}
                                     >{key}</div>
                                 )
                             })}
@@ -176,14 +177,14 @@ export default function Contact({selectedOffers}) {
         let addOns = []
         Object.keys(addOnObject).forEach((key) => {
             if(addOnObject[key].selected){
-                let str = key + ' priced at ' + addOnObject[key].price;
+                let str = key + ' Discount Price ' + addOnObject[key].price;
                 console.log(str);
                 addOns.push(str);
             }
         });
         let offers = [];
         selectedOffers.forEach((offer) => {
-            let str = offer.text + ' priced at ' + offer.price + ' DISCOUNTED to ' + offer.discountedPrice
+            let str = offer.text + ' Discount Price: ' + offer.discountedPrice
             offers.push(str);
         });
         let data = {...formState, addOns: addOns, offers: offers}
