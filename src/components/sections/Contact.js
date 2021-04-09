@@ -162,7 +162,7 @@ export default function Contact({selectedOffers}) {
                         <div id={'expandMessageAreaButton'}
                              onClick={()=>{updateMessageFieldState(!messageFieldOpen)}}
                         >
-                            Click to { messageFieldOpen ? 'remove your message' : 'add a message'}
+                            Click to { messageFieldOpen ? 'remove message' : 'add a message'}
                             <span id={'openStateIndicator'} className={messageFieldOpen ? 'open' : ''}> {'<'}</span></div>
                         <div id={'textAreaHolder'} className={messageFieldOpen ? 'expanded' : ''}>
                             <textarea
@@ -190,13 +190,13 @@ export default function Contact({selectedOffers}) {
         let addOns = []
         Object.keys(addOnObject).forEach((key) => {
             if (addOnObject[key].selected) {
-                let str = key + ' Discount Price ' + addOnObject[key].price;
+                let str = key + ': ' + addOnObject[key].price;
                 addOns.push(str);
             }
         });
         let offers = [];
         selectedOffers.forEach((offer) => {
-            let str = offer.text + ' Discount Price: ' + offer.discountedPrice
+            let str = offer.text + ': ' + offer.discountedPrice
             offers.push(str);
         });
         let data = {...formState, addOns: addOns, offers: offers, message: userMessage}
