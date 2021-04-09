@@ -1,4 +1,4 @@
-import React, {useReducer} from 'react'
+import React, {useState, useReducer} from 'react'
 import emailjs from "emailjs-com";
 
 const initialFormState = {
@@ -74,6 +74,8 @@ function Input(id, placeholder, value, onChange, customClasses) {
 
 
 export default function Contact({selectedOffers}) {
+    const [messageFieldOpen, updateMessageFieldState] = useState(false);
+    const [userMessage, updateUserMessage] = useState('');
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
     const [addOnState, addOnDispatch] = useReducer(addOnReducer, addOnObject);
     return (
@@ -140,8 +142,8 @@ export default function Contact({selectedOffers}) {
                     <div id={'addOns'}>
                         <div id={'addOnsHeader'}>Add-Ons</div>
                         <div id={'addOnsHolder'}>
-                            {Object.keys(addOnObject).map((key) => {
-                                const selected = addOnObject[key].selected
+                            {Object.keys(addOnState).map((key) => {
+                                const selected = addOnState[key].selected
                                 const selectedClass = selected ? ' selected' : '';
                                 return (
                                     <div
@@ -156,13 +158,26 @@ export default function Contact({selectedOffers}) {
                             })}
                         </div>
                     </div>
-                    {/*<div id={'disclaimer'}>*/}
-                    {/*    We'll discuss availability when scheduling your appointment.*/}
-                    {/*</div>*/}
+                    <div id={'messageArea'}>
+                        <div id={'expandMessageAreaButton'}
+                             onClick={()=>{updateMessageFieldState(!messageFieldOpen)}}
+                        >
+                            Click to { messageFieldOpen ? 'remove your message' : 'add a message'}
+                            <span id={'openStateIndicator'} className={messageFieldOpen ? 'open' : ''}> {'<'}</span></div>
+                        <div id={'textAreaHolder'} className={messageFieldOpen ? 'expanded' : ''}>
+                            <textarea
+                                value={userMessage}
+                                onChange={e=>{updateUserMessage(e.target.value)}}
+                            />
+                        </div>
+                    </div>
                 </div>
                 <div className={'formSection bottom'}>
                     <div className={'contactBotSection sendHolder'}>
-                        <button onClick={e=>{sendEmail(e)}}>Send</button>
+                        <button onClick={e => {
+                            sendEmail(e)
+                        }}>Send
+                        </button>
                     </div>
                 </div>
             </div>
@@ -170,15 +185,12 @@ export default function Contact({selectedOffers}) {
     );
 
 
-
-
     function sendEmail(e) {
         e.preventDefault();
         let addOns = []
         Object.keys(addOnObject).forEach((key) => {
-            if(addOnObject[key].selected){
+            if (addOnObject[key].selected) {
                 let str = key + ' Discount Price ' + addOnObject[key].price;
-                console.log(str);
                 addOns.push(str);
             }
         });
@@ -187,15 +199,14 @@ export default function Contact({selectedOffers}) {
             let str = offer.text + ' Discount Price: ' + offer.discountedPrice
             offers.push(str);
         });
-        let data = {...formState, addOns: addOns, offers: offers}
+        let data = {...formState, addOns: addOns, offers: offers, message: userMessage}
         emailjs.send('service_r317n9j', 'A4H_template', data, 'user_bmGQziAe7CejBZhHyXZm6')
-            .then(function(response) {
-            }, function(error) {
+            .then(function (response) {
+            }, function (error) {
                 console.log('FAILED...', error);
             });
     }
 }
-
 
 
 function getPhoneNumber(val) {

@@ -71,6 +71,7 @@
     opacity: 0;
     transition: opacity .2s;
     pointer-events: none;
+
     &.visible {
       display: flex;
       opacity: 1;
@@ -286,9 +287,11 @@
 
                 .includesHolder {
                   display: inline-flex;
-                  .includeText{
+
+                  .includeText {
                     font-weight: 400;
                   }
+
                   span.imgHolder {
                     display: inline-flex;
                     align-items: center;
@@ -398,7 +401,8 @@
 
     .headerHolder, .stickyHeaderHolder {
       border-color: #6dbac6;
-min-height: 4em;
+      min-height: 4em;
+
       .header {
         color: #6dbac6;
         font-size: 2.5em;
@@ -662,7 +666,7 @@ min-height: 4em;
 
       @media screen and (max-width: 1300px) {
         min-height: 200vh;
-        width:100%;
+        width: 100%;
         flex-direction: column;
       }
       @media screen and (max-width: 1800px) {
@@ -896,10 +900,11 @@ min-height: 4em;
                     align-items: center;
                     margin-bottom: 1em;
 
-                    .necessaryInput{
+                    .necessaryInput {
                       border: solid 2px;
                       border-color: orange;
                       transition: border-color .25s, background-color .25s, font-weight .25s, color .25s;
+
                       &.valid {
                         border-color: #4ad04a;
                         background-color: rgba(135, 238, 135, 0.43);
@@ -985,6 +990,7 @@ min-height: 4em;
 
                   #addOnsHolder {
                     padding: 1em 0;
+
                     .addOnItem {
                       display: inline-flex;
                       justify-content: center;
@@ -1002,7 +1008,8 @@ min-height: 4em;
                       cursor: pointer;
                       transition: background-color .25s;
                       user-select: none;
-                      &.selected{
+
+                      &.selected {
                         background-color: rgba(89, 161, 89, 0.47);
                       }
 
@@ -1015,6 +1022,67 @@ min-height: 4em;
                   }
                 }
 
+                #messageArea {
+                  #expandMessageAreaButton {
+                    color: white;
+                    font-size: 1.25em;
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-weight: 400;
+                    cursor: pointer;
+                    background-color: rgba(255, 255, 255, 0.2);
+                    padding: .5em;
+                    border-radius: 5px;
+                    margin-bottom: 1em;
+                    transition: background-color .25s;
+                    #openStateIndicator {
+                      font-size: 1.5em;
+                      width:1.5em;
+                      height:1.5em;
+                      border-radius:50%;
+                      margin-left: .5em;
+                      font-weight: 400;
+                      background-color: rgba(255, 255, 255, 0.2);
+                      box-sizing: border-box;
+                      user-select: none;
+                      transition: background-color .25s, transform .35s ease-in-out;
+                      &.open{
+                        transform: rotate(270deg);
+                        padding-top: 1px;
+                      }
+                    }
+
+                    &:hover{
+                      background-color: #5e895e;
+                      #openStateIndicator{
+                        background-color: #88ad88;
+                      }
+                    }
+                  }
+
+                  #textAreaHolder {
+                    height: 0px;
+                    transition: height .25s;
+                    textarea{
+                      font-size: 1.25em;
+                      height:7em;
+                      width:20em;
+                      opacity: 0;
+                      user-select: none;
+                      pointer-events: none;
+                      font-weight: 400;
+                    }
+                    &.expanded{
+                      height:10em;
+                      textarea {
+                        opacity: 1;
+                        user-select: all;
+                        pointer-events: all;
+                      }
+                    }
+                  }
+                }
 
                 #disclaimer {
                   color: #afafaf;
@@ -1062,14 +1130,16 @@ min-height: 4em;
                       cursor: pointer;
                       user-select: none;
                       transition: background-color .25s;
-                      &:hover{
+
+                      &:hover {
                         background: #6dbac6;
                       }
-                      &:active{
+
+                      &:active {
                         background: #3d818d;
                       }
 
-                      @media screen and (max-width: 1000px){
+                      @media screen and (max-width: 1000px) {
                         width: 5.5em;
                       }
                     }
@@ -1084,7 +1154,6 @@ min-height: 4em;
   }
 
   &#blogAndBTT {
-    height: 5vh;
     min-height: unset;
     align-items: center;
     justify-content: center;
