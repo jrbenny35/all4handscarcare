@@ -288,6 +288,7 @@ export default function Contact({selectedOffers}) {
             let beginFadeoutState = {...notificationObject, fadeOut: true}
             updateNotificationState(beginFadeoutState);
             setTimeout(() => {
+                document.body.classList.remove('modalShowing')
                 updateNotificationState(notificationInitState);
             }, 500)
         }, 4000)
