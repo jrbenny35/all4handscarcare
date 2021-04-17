@@ -1,6 +1,7 @@
 import React, {useState, useReducer} from 'react'
 import emailjs from "emailjs-com";
 import EmailNotification from './EmailNotification';
+import Captcha from '../Captcha';
 
 const initialFormState = {
     name: '',
@@ -212,6 +213,7 @@ export default function Contact({selectedOffers}) {
                         </div>
                     </div>
                 </div>
+                <Captcha/>
                 <div className={'formSection bottom'}>
                     <div className={'contactBotSection sendHolder'}>
                         <button onClick={e => {
