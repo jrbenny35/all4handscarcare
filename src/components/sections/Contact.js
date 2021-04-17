@@ -1,5 +1,6 @@
 import React, {useState, useReducer} from 'react'
 import emailjs from "emailjs-com";
+import EmailNotification from './EmailNotification';
 
 const initialFormState = {
     name: '',
@@ -17,7 +18,11 @@ const ACTIONS = {
     UPDATE_MODEL: 'updateModel',
     UPDATE_YEAR: 'updateYear',
     ADD_ADD_ON: 'addAddOn',
-    REMOVE_ADD_ON: 'removeAddOn'
+    REMOVE_ADD_ON: 'removeAddOn',
+    UPDATE_NOTIFICATION_ERROR: 'updateEmailError',
+    UPDATE_NOTIFICATION_MESSAGE: 'updateEmailMessage',
+    UPDATE_NOTIFICATION_DISPLAY: 'updateEmailDisplay',
+
 }
 
 function formReducer(state, action) {
@@ -56,6 +61,21 @@ function addOnReducer(state, action) {
     }
 }
 
+function notificationReducer(state, action) {
+    switch (action.type) {
+        case ACTIONS.UPDATE_NOTIFICATION_ERROR:
+            state[action.key].selected = true;
+            return {...state}
+        case ACTIONS.UPDATE_NOTIFICATION_MESSAGE:
+            state[action.key].selected = false;
+            return {...state}
+        case ACTIONS.UPDATE_NOTIFICATION_DISPLAY:
+            state[action.key].selected = false;
+            return {...state}
+        default:
+            return state;
+    }
+}
 
 function Input(id, placeholder, value, onChange, customClasses) {
     return (
@@ -74,16 +94,33 @@ function Input(id, placeholder, value, onChange, customClasses) {
 
 
 export default function Contact({selectedOffers}) {
+    const [notificationState, updateNotificationState] = useState({
+        error: false,
+        messages: [],
+        display: false
+    })
     const [messageFieldOpen, updateMessageFieldState] = useState(false);
     const [userMessage, updateUserMessage] = useState('');
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
     const [addOnState, addOnDispatch] = useReducer(addOnReducer, addOnObject);
     return (
         <div id={'contactSectionRight'} className={'sideSection'}>
+            {notificationState.display &&
+            <EmailNotification
+                notificationObject={notificationState}
+                dismissNotification={() => {
+                    console.log('going');
+                    updateNotificationState({
+                        error: false,
+                        messages: [],
+                        display: false
+                    })
+                }}
+            />}
             <div className={'headerHolder'}>
                 <div className={'header'}>Schedule</div>
             </div>
-            <div id={'actualForm'}>
+            <form id={'actualForm'}>
                 <div className={'formSection top'}>
                     <div id={'formInputs'}>
                         <div id={'nameAndNumber'}>
@@ -131,7 +168,9 @@ export default function Contact({selectedOffers}) {
                         <div id={'selectionsHolder'}>
                             {!!(selectedOffers.length) && selectedOffers.map((offer) => {
                                 return (
-                                    <div>{offer.text}</div>
+                                    <div
+                                        key={offer}
+                                    >{offer.text}</div>
                                 )
                             })}
                             {!(selectedOffers.length) &&
@@ -147,6 +186,7 @@ export default function Contact({selectedOffers}) {
                                 const selectedClass = selected ? ' selected' : '';
                                 return (
                                     <div
+                                        key={key}
                                         className={'addOnItem' + selectedClass}
                                         onClick={() => {
                                             let ACTION = selected ? ACTIONS.REMOVE_ADD_ON : ACTIONS.ADD_ADD_ON;
@@ -160,14 +200,19 @@ export default function Contact({selectedOffers}) {
                     </div>
                     <div id={'messageArea'}>
                         <div id={'expandMessageAreaButton'}
-                             onClick={()=>{updateMessageFieldState(!messageFieldOpen)}}
+                             onClick={() => {
+                                 updateMessageFieldState(!messageFieldOpen)
+                             }}
                         >
-                            Click to { messageFieldOpen ? 'remove message' : 'add a message'}
-                            <span id={'openStateIndicator'} className={messageFieldOpen ? 'open' : ''}> {'<'}</span></div>
+                            Click to {messageFieldOpen ? 'remove message' : 'add a message'}
+                            <span id={'openStateIndicator'} className={messageFieldOpen ? 'open' : ''}> {'<'}</span>
+                        </div>
                         <div id={'textAreaHolder'} className={messageFieldOpen ? 'expanded' : ''}>
                             <textarea
                                 value={userMessage}
-                                onChange={e=>{updateUserMessage(e.target.value)}}
+                                onChange={e => {
+                                    updateUserMessage(e.target.value)
+                                }}
                             />
                         </div>
                     </div>
@@ -175,18 +220,40 @@ export default function Contact({selectedOffers}) {
                 <div className={'formSection bottom'}>
                     <div className={'contactBotSection sendHolder'}>
                         <button onClick={e => {
-                            sendEmail(e)
+                            onSubmit(e)
                         }}>Send
                         </button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     );
 
 
-    function sendEmail(e) {
+    function onSubmit(e) {
         e.preventDefault();
+        e.stopPropagation();
+
+        const invalidName = (formState.name.length === 0);
+        const invalidNumber = (formState.phoneNumber.length !== 10);
+
+        if (invalidName || invalidNumber) {
+            let errState = {
+                error: true,
+                messages: [],
+                display: true,
+                header: 'Required Fields:'
+            }
+            if (invalidName) {
+                errState.messages.push('Please enter a name.')
+            }
+            if (invalidNumber) {
+                errState.messages.push('Please enter a phone number.')
+            }
+            updateNotificationState(errState)
+            return;
+        }
+
         let addOns = []
         Object.keys(addOnObject).forEach((key) => {
             if (addOnObject[key].selected) {
@@ -202,8 +269,21 @@ export default function Contact({selectedOffers}) {
         let data = {...formState, addOns: addOns, offers: offers, message: userMessage}
         emailjs.send('service_r317n9j', 'A4H_template', data, 'user_bmGQziAe7CejBZhHyXZm6')
             .then(function (response) {
+                let successState = {
+                    error: false,
+                    messages: ['Your message has been sent!', 'Expect to hear from us in the next 48 hours'],
+                    display: true,
+                    header: 'Success!'
+                }
+                updateNotificationState(successState)
             }, function (error) {
-                console.log('FAILED...', error);
+                let errState = {
+                    error: true,
+                    messages: ['There was an error!', 'Try again later or give us a call at (555) 555-5555'],
+                    display: true,
+                    header: 'uh-oh, server error'
+                }
+                updateNotificationState(errState)
             });
     }
 }

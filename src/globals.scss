@@ -16,3 +16,10 @@
   box-shadow: 4px 5px 10px rgba(0, 0, 0, 1);
   cursor: pointer;
 }
+
+body{
+  &.modalShowing{
+    height:100vh;
+    overflow-y: hidden;
+  }
+}
