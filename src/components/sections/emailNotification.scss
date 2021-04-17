@@ -14,6 +14,10 @@
   justify-content: center;
   align-items: center;
 
+  &.fadeOut {
+    animation: fadeOut .5s ease-out;
+  }
+
   #emailNotification {
     height: 15em;
     width: 35em;
@@ -56,5 +60,26 @@
       }
     }
 
+    #dismissInstructions {
+      color: white;
+      font-weight: 400;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: background-color .3s ease-in-out;
+      padding: .5em;
+      &:hover{
+        background-color: rgba(255, 255, 255, 0.2);
+      }
+    }
   }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1
+  }
+  to {
+    opacity: 0
+  }
+
 }

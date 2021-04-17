@@ -10,7 +10,11 @@ const initialFormState = {
     model: '',
     year: ''
 }
-
+const notificationInitState = {
+    error: false,
+    messages: [],
+    display: false
+}
 const ACTIONS = {
     UPDATE_NAME: 'updateName',
     UPDATE_PHONE_NUMBER: 'updatePhoneNumber',
@@ -94,11 +98,7 @@ function Input(id, placeholder, value, onChange, customClasses) {
 
 
 export default function Contact({selectedOffers}) {
-    const [notificationState, updateNotificationState] = useState({
-        error: false,
-        messages: [],
-        display: false
-    })
+    const [notificationState, updateNotificationState] = useState(notificationInitState)
     const [messageFieldOpen, updateMessageFieldState] = useState(false);
     const [userMessage, updateUserMessage] = useState('');
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
@@ -109,12 +109,7 @@ export default function Contact({selectedOffers}) {
             <EmailNotification
                 notificationObject={notificationState}
                 dismissNotification={() => {
-                    console.log('going');
-                    updateNotificationState({
-                        error: false,
-                        messages: [],
-                        display: false
-                    })
+                    updateNotificationState(notificationInitState)
                 }}
             />}
             <div className={'headerHolder'}>
@@ -250,7 +245,7 @@ export default function Contact({selectedOffers}) {
             if (invalidNumber) {
                 errState.messages.push('Please enter a phone number.')
             }
-            updateNotificationState(errState)
+            renderModal(errState)
             return;
         }
 
@@ -275,7 +270,7 @@ export default function Contact({selectedOffers}) {
                     display: true,
                     header: 'Success!'
                 }
-                updateNotificationState(successState)
+                renderModal(successState)
             }, function (error) {
                 let errState = {
                     error: true,
@@ -283,8 +278,19 @@ export default function Contact({selectedOffers}) {
                     display: true,
                     header: 'uh-oh, server error'
                 }
-                updateNotificationState(errState)
+                renderModal(errState)
             });
+    }
+
+    function renderModal(notificationObject) {
+        updateNotificationState(notificationObject);
+        setTimeout(() => {
+            let beginFadeoutState = {...notificationObject, fadeOut: true}
+            updateNotificationState(beginFadeoutState);
+            setTimeout(() => {
+                updateNotificationState(notificationInitState);
+            }, 500)
+        }, 4000)
     }
 }
 

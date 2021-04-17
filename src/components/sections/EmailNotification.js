@@ -7,12 +7,8 @@ export default function EmailNotification({notificationObject, dismissNotificati
     const messages = notificationObject.messages;
     return (
         <div id={'transparentBG'}
-             onClick={e => {
-                 e.stopPropagation();
-                 e.preventDefault();
-                 document.body.classList.remove('modalShowing')
-                 dismissNotification();
-             }}>
+             className={(notificationObject.fadeOut ? 'fadeOut' : '')}
+             onClick={onDismiss}>
             <div
                 id={'emailNotification'}
                 onClick={e => {
@@ -29,8 +25,22 @@ export default function EmailNotification({notificationObject, dismissNotificati
                         )
                     })}
                 </div>
-                <div>(Click to dismiss, or wait 5 seconds)</div>
+                <div id={'dismissInstructions'}
+                     onClick={onDismiss}
+                >(Click here to dismiss, or wait 5 seconds)
+                </div>
             </div>
         </div>
     )
+
+
+    function onDismiss(e) {
+        {
+            e.stopPropagation();
+            e.preventDefault();
+            document.body.classList.remove('modalShowing')
+            dismissNotification();
+        }
+    }
+
 }
