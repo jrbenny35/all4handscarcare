@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import {DesktopNav} from './components/desktopNav/';
+import './components/desktopNav/fixedNavStyle.scss';
 import {MobileNavButton, MobileNavMenu} from './components/mobileNavMenuAndButton/';
 import './components/sections';
 import {BottomButtons, About, OffersAndContact, ExteriorServices, Splash, InteriorServices} from "./components/sections";

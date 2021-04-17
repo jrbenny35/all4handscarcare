@@ -66,22 +66,6 @@ function addOnReducer(state, action) {
     }
 }
 
-function notificationReducer(state, action) {
-    switch (action.type) {
-        case ACTIONS.UPDATE_NOTIFICATION_ERROR:
-            state[action.key].selected = true;
-            return {...state}
-        case ACTIONS.UPDATE_NOTIFICATION_MESSAGE:
-            state[action.key].selected = false;
-            return {...state}
-        case ACTIONS.UPDATE_NOTIFICATION_DISPLAY:
-            state[action.key].selected = false;
-            return {...state}
-        default:
-            return state;
-    }
-}
-
 function Input(id, placeholder, value, onChange, customClasses) {
     return (
         <input

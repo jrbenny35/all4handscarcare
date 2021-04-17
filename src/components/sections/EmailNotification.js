@@ -35,12 +35,10 @@ export default function EmailNotification({notificationObject, dismissNotificati
 
 
     function onDismiss(e) {
-        {
-            e.stopPropagation();
-            e.preventDefault();
-            document.body.classList.remove('modalShowing')
-            dismissNotification();
-        }
+        e.stopPropagation();
+        e.preventDefault();
+        document.body.classList.remove('modalShowing')
+        dismissNotification();
     }
 
 }
