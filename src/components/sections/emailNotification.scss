@@ -13,7 +13,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
+  @media screen and (max-width: 1000px){
+    align-items: flex-start;
+    padding-top: 10em;
+  }
   &.fadeOut {
     animation: fadeOut 1s;
   }
