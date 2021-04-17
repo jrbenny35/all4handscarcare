@@ -104,6 +104,7 @@ export default function Contact({selectedOffers}) {
     const [userMessage, updateUserMessage] = useState('');
     const [formState, dispatch] = useReducer(formReducer, initialFormState);
     const [addOnState, addOnDispatch] = useReducer(addOnReducer, addOnObject);
+    const [captchaVerified, updateCaptchaVerified] = useState(false);
     return (
         <div id={'contactSectionRight'} className={'sideSection'}>
             {notificationState.display &&
@@ -213,7 +214,8 @@ export default function Contact({selectedOffers}) {
                         </div>
                     </div>
                 </div>
-                <Captcha/>
+                <Captcha
+                    updateCaptchaVerified={updateCaptchaVerified}/>
                 <div className={'formSection bottom'}>
                     <div className={'contactBotSection sendHolder'}>
                         <button onClick={e => {
@@ -230,6 +232,18 @@ export default function Contact({selectedOffers}) {
     function onSubmit(e) {
         e.preventDefault();
         e.stopPropagation();
+
+
+        if(!captchaVerified){
+            let errState = {
+                error: true,
+                messages: ['Before sending you must validate', 'Please use the CAPTCHA above this button'],
+                display: true,
+                header: 'Are you human?'
+            }
+            renderModal(errState)
+            return;
+        }
 
         const invalidName = (formState.name.length === 0);
         const invalidNumber = (formState.phoneNumber.length !== 10);
