@@ -234,17 +234,6 @@ export default function Contact({selectedOffers}) {
         e.stopPropagation();
 
 
-        if(!captchaVerified){
-            let errState = {
-                error: true,
-                messages: ['Before sending you must validate', 'Please use the CAPTCHA above this button'],
-                display: true,
-                header: 'Are you human?'
-            }
-            renderModal(errState)
-            return;
-        }
-
         const invalidName = (formState.name.length === 0);
         const invalidNumber = (formState.phoneNumber.length !== 10);
 
@@ -264,6 +253,18 @@ export default function Contact({selectedOffers}) {
             renderModal(errState)
             return;
         }
+
+        if(!captchaVerified){
+            let errState = {
+                error: true,
+                messages: ['Before sending you must validate', 'Please use the CAPTCHA above this button'],
+                display: true,
+                header: 'Are you human?'
+            }
+            renderModal(errState)
+            return;
+        }
+
 
         let addOns = []
         Object.keys(addOnObject).forEach((key) => {
@@ -304,9 +305,10 @@ export default function Contact({selectedOffers}) {
             let beginFadeoutState = {...notificationObject, fadeOut: true}
             updateNotificationState(beginFadeoutState);
             setTimeout(() => {
+                console.log(notificationState.display);
                 document.body.classList.remove('modalShowing')
                 updateNotificationState(notificationInitState);
-            }, 500)
+            }, 1000)
         }, 4000)
     }
 }
