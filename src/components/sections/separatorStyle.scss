@@ -343,7 +343,7 @@ $lightText: #f4f2f2;
       background-attachment: scroll;
     }
     background-color: #171717;
-    background-image: url('../../assets/images/darkBMWdash2k.jpg');
+    background-image: url('../../assets/images/background_images/darkBMWdash2k.jpg');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -379,7 +379,7 @@ $lightText: #f4f2f2;
   }
 
   &#exteriorServicesSection {
-    background-image: url('../../assets/images/extBG3.jpg');
+    background-image: url('../../assets/images/background_images/extBG3.jpg');
 
 
     background-repeat: no-repeat;
@@ -391,7 +391,7 @@ $lightText: #f4f2f2;
     @media screen and (max-width: 800px) {
       background-attachment: scroll;
       background-position: 0;
-      background-image: url('../../assets/images/mobileExtBG.jpg');
+      background-image: url('../../assets/images/background_images/mobileExtBG.jpg');
     }
 
     .headerHolder, .stickyHeaderHolder {
@@ -408,7 +408,7 @@ $lightText: #f4f2f2;
   }
 
   &#interiorServicesSection {
-    background-image: url('../../assets/images/interiorBG1.jpg');
+    background-image: url('../../assets/images/background_images/interiorBG1.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
@@ -728,7 +728,7 @@ $lightText: #f4f2f2;
         }
 
         &#contactSectionLeft {
-          background: url("../../assets/images/contactLeftBG.jpg");
+          background: url("../../assets/images/background_images/contactLeftBG.jpg");
           background-attachment: fixed;
           background-repeat: no-repeat;
           background-position: left;
@@ -807,7 +807,7 @@ $lightText: #f4f2f2;
         }
 
         &#contactSectionRight {
-          background-image: url('../../assets/images/contactBG.jpg');
+          background-image: url('../../assets/images/background_images/contactBG.jpg');
           background-size: cover;
           align-items: center;
           justify-content: flex-start;
