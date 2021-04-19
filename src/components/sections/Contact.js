@@ -81,6 +81,7 @@ function Input(id, placeholder, value, onChange, customClasses) {
     )
 }
 
+let modalTimeout = null;
 
 export default function Contact({selectedOffers}) {
     const [notificationState, updateNotificationState] = useState(notificationInitState)
@@ -95,6 +96,7 @@ export default function Contact({selectedOffers}) {
             <EmailNotification
                 notificationObject={notificationState}
                 dismissNotification={() => {
+                    clearModalTimeout();
                     updateNotificationState(notificationInitState)
                 }}
             />}
@@ -238,7 +240,7 @@ export default function Contact({selectedOffers}) {
             return;
         }
 
-        if(!captchaVerified){
+        if (!captchaVerified) {
             let errState = {
                 error: true,
                 messages: ['Before sending you must validate', 'Please use the CAPTCHA above this button'],
@@ -285,17 +287,22 @@ export default function Contact({selectedOffers}) {
 
     function renderModal(notificationObject) {
         updateNotificationState(notificationObject);
-        setTimeout(() => {
+        modalTimeout = setTimeout(() => {
             let beginFadeoutState = {...notificationObject, fadeOut: true}
             updateNotificationState(beginFadeoutState);
-            document.body.classList.remove('modalShowing')
-            setTimeout(() => {
+            document.body.classList.remove('modalShowing');
+            modalTimeout = setTimeout(() => {
                 updateNotificationState(notificationInitState);
-            }, 1000)
+            }, 500)
         }, 4000)
     }
 }
 
+function clearModalTimeout() {
+    if (setTimeout !== null) {
+        clearTimeout(modalTimeout);
+    }
+}
 
 function getPhoneNumber(val) {
     //pure numbers
