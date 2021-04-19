@@ -896,28 +896,6 @@ $lightText: #f4f2f2;
                     flex-direction: column;
                   }
 
-                  .necessaryFieldHolder {
-                    display: flex;
-                    flex: 1;
-                    width: 80%;
-                    justify-content: center;
-                    align-items: center;
-
-                    .necessaryInput {
-                      border: solid 2px;
-                      border-color: orange;
-                      transition: border-color .25s, background-color .25s, font-weight .25s, color .25s;
-
-                      &.valid {
-                        border-color: #4ad04a;
-                        background-color: rgba(135, 238, 135, 0.43);
-                        font-weight: 400;
-                        color: $lightText;
-                      }
-
-                    }
-                  }
-
                   #nameAndNumber {
                     display: flex;
                     flex: 1;
@@ -928,6 +906,33 @@ $lightText: #f4f2f2;
                       align-items: center;
                       justify-content: center;
                       border-bottom: solid 1px #cdcdcd;
+                      padding-bottom: 2em;
+                    }
+
+
+                    .necessaryFieldHolder {
+                      display: flex;
+                      flex: 1;
+                      width: 80%;
+                      justify-content: center;
+                      align-items: center;
+                      @media screen and (max-width: 1400px) {
+                        &:nth-child(1){
+                          margin-bottom: 1em;
+                        }
+                      }
+                      .necessaryInput {
+                        border: solid 2px;
+                        border-color: orange;
+                        transition: border-color .25s, background-color .25s, font-weight .25s, color .25s;
+                        &.valid {
+                          border-color: #4ad04a;
+                          background-color: rgba(135, 238, 135, 0.43);
+                          font-weight: 400;
+                          color: $lightText;
+                        }
+
+                      }
 
                     }
                   }
@@ -947,7 +952,7 @@ $lightText: #f4f2f2;
                         &:nth-child(1) {
                           margin-top: .5em;
                         }
-                        margin: .25em;
+                        margin: .5em;
                       }
                     }
                   }
@@ -1027,14 +1032,14 @@ $lightText: #f4f2f2;
                 #messageArea {
                   #expandMessageAreaButton {
                     color: $lightText;
-                    font-size: 1.25em;
+                    font-size: 1.1em;
                     display: flex;
                     align-items: center;
                     justify-content: center;
                     font-weight: 400;
                     cursor: pointer;
                     background-color: rgba(255, 255, 255, 0.2);
-                    padding: .5em;
+                    padding: .25em;
                     border-radius: 5px;
                     margin-bottom: 1em;
                     transition: background-color .25s;

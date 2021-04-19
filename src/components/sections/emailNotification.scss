@@ -33,7 +33,9 @@
 
     background-color: #485261;
     border-radius: 15px;
-
+    @media screen and (max-width: 1000px) {
+      width:80%;
+    }
     #notificationHeader {
       display: flex;
       height: 2.5em;
