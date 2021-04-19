@@ -265,6 +265,8 @@ export default function Contact({selectedOffers}) {
             offers.push(str);
         });
         let data = {...formState, addOns: addOns, offers: offers, message: userMessage}
+        console.log(process.env.REACT_APP_EMUSER)
+
         emailjs.send(process.env.REACT_APP_EMSERV, process.env.REACT_APP_EMTEMP, data, process.env.REACT_APP_EMUSER)
             .then(function (response) {
                 let successState = {
@@ -275,6 +277,8 @@ export default function Contact({selectedOffers}) {
                 }
                 renderModal(successState)
             }, function (error) {
+                console.log('error');
+                console.log(error);
                 let errState = {
                     error: true,
                     messages: ['There was an error!', 'Try again later or give us a call at (555) 555-5555'],
