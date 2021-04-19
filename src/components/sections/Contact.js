@@ -265,7 +265,7 @@ export default function Contact({selectedOffers}) {
             offers.push(str);
         });
         let data = {...formState, addOns: addOns, offers: offers, message: userMessage}
-        emailjs.send('service_r317n9j', 'A4H_template', data, 'user_bmGQziAe7CejBZhHyXZm6')
+        emailjs.send(process.env.REACT_APP_EMSERV, process.env.REACT_APP_EMTEMP, data, process.env.REACT_APP_EMUSER)
             .then(function (response) {
                 let successState = {
                     error: false,
