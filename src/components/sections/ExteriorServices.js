@@ -118,15 +118,14 @@ export default class ExteriorServices extends React.Component {
                                 </div>
                                 <ul>
                                     <li>Complete Exterior Cleaning</li>
-                                    <li>Decontamination</li>
                                     <li>Wheel Cleaning</li>
                                     <li>Tire Cleaning</li>
-                                    <li>Protective Coating</li>
+                                    <li>Basic Protective Sealant</li>
                                 </ul>
                                 <div className={'youtubeHolder'}>
                                     <iframe
                                         title={'vid1'}
-                                        src="https://www.youtube.com/embed/xaQmB_qje_4"
+                                        src="https://www.youtube.com/embed/EdAfTx-PXmo"
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                         allowFullScreen/>
@@ -149,12 +148,7 @@ export default class ExteriorServices extends React.Component {
                                     <li>High End Sealant</li>
                                 </ul>
                                 <div className={'youtubeHolder'}>
-                                    <iframe
-                                        title={'vid 2'}
-                                        src="https://www.youtube.com/embed/xaQmB_qje_4"
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen/>
+                                    <h1>Video Coming Soon!</h1>
                                 </div>
                             </div>
                             <div className={'slice'}>
@@ -174,11 +168,7 @@ export default class ExteriorServices extends React.Component {
                                     <li>Glass Sealant</li>
                                 </ul>
                                 <div className={'youtubeHolder'}>
-                                    <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
-                                            title={'vid 3'}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen/>
+                                    <h1>Video Coming Soon!</h1>
                                 </div>
                             </div>
                             <div className={'slice'}>
@@ -200,11 +190,7 @@ export default class ExteriorServices extends React.Component {
                                     <li>Metal Polish</li>
                                 </ul>
                                 <div className={'youtubeHolder'}>
-                                    <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
-                                            title={'vid4'}
-                                            frameBorder="0"
-                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                            allowFullScreen/>
+                                    <h1>Video Coming Soon!</h1>
                                 </div>
                             </div>
                         </div>

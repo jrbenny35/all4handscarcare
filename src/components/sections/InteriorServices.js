@@ -121,8 +121,7 @@ export default class InteriorServices extends React.Component {
                                 </ul>
                                 <ul>
                                     <li>Leather Seats cleaned lightly</li>
-                                    <li>UV Protection applied</li>
-                                    <li>Dash, door panels, seats</li>
+                                    <li>UV Protection applied to Dash, door panels, seats</li>
                                 </ul>
                             </div>
                             <div className={'specialHolder'}>
@@ -141,7 +140,7 @@ export default class InteriorServices extends React.Component {
                                 </ul>
                             </div>
                             <div className={'youtubeHolder'}>
-                                <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
+                                <iframe src="https://www.youtube.com/embed/mO_p3sEguTM"
                                         title={'vid 2int'}
                                         frameBorder="0"
                                         allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
@@ -165,13 +164,10 @@ export default class InteriorServices extends React.Component {
                                             <span className={'imgHolder'}><img alt={'tier 1 icon'} src={icon1}/> </span>
                                         </span>
                                 </li>
+                                <li>Only done via estimates</li>
                             </ul>
                             <div className={'youtubeHolder'}>
-                                <iframe src="https://www.youtube.com/embed/xaQmB_qje_4"
-                                        title={'vid 1int'}
-                                        frameBorder="0"
-                                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                        allowFullScreen/>
+                                <h1>Video Coming Soon!</h1>
                             </div>
                         </div>
                     </div>

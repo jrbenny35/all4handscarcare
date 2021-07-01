@@ -1,5 +1,5 @@
 import React from 'react';
-import benPic from '../../assets/images/armsCrossedPepe.png';
+import benPic from '../../assets/images/portrait.jpg';
 
 export default class About extends React.Component {
     constructor(props) {
@@ -25,21 +25,17 @@ export default class About extends React.Component {
                     <div id={'aboutContent'}>
                         <div id={'aboutTextAndImg'}>
 
-                            <p>pinterest health goth. Skateboard master cleanse godard, put a bird on it dreamcatcher
-                                aesthetic wayfarers you probably haven't heard of them cold-pressed. Williamsburg
-                                flannel fashion axe, thundercats hammock pok pok poke you probably haven't heard of them
-                                cliche skateboard truffaut vinyl pickled.
-
-                                Activated charcoal yr mixtape migas coloring book authentic. Ethical single-origin
-                                coffee palo santo forage wayfarers beard. Flannel mustache church-key tote bag
-                                humblebrag viral. Leggings </p>
+                            <p>All 4 Hands Car Care provides high end detailing services to those who want to protect 
+                                and maintain their automotive purchases for years to come. Using only the best 
+                                techniques and products, we make sure to only enhance your vehicle with the utmost care 
+                                and precision. Let us take care of your investment!
+                            </p>
                             <div id={'aboutPic'}>
                                 <img id={'benPic'} src={benPic} alt={'Ben Forehand'}/>
                             </div>
                         </div>
                         <div id={'boldAboutText'}>
-                            <p>in the sea of other things sometimes, some things shine brighter
-                            than the sun </p></div>
+                            <p>Specializing in Paint Correction and Ceramic Coatings. IDA Certified. Insured.</p></div>
 
 
                     </div>
