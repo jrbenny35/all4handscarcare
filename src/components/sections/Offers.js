@@ -25,8 +25,7 @@ export default function Offers({dispatch, offersState, ACTIONS}) {
                                 dispatch(action);
                             }}>
                                 <span className={'comboText'}>{offerObject.text}</span>
-                                <span className={'comboPrice'}>{offerObject.price}</span>
-                                <span className={'discountedPrice'}>{offerObject.discountedPrice}</span>
+                                <span className={'discountedPrice'}>${offerObject.discountedPrice}</span>
                             </li>);
                     })}
                 </ul>

@@ -334,29 +334,30 @@ function getPhoneNumber(val) {
 }
 
 const addOnObject = {
-    'Back Rub': {
+    'Class Coating': {
         price: 5,
         selected: false
 
-    }, 'Special Back Rub': {
+    },
+    'Headlight restoration': {
         price: 50,
         selected: false
 
     },
-    'Little tree air freshner': {
+    'Wheel coating': {
         price: 5,
         selected: false
     },
-    'Big tree air freshner': {
+    'Stain Removal': {
         price: 10,
         selected: false
 
     },
-    'steering wheel re-calibration': {
+    'Trim Restoration': {
         price: 500,
         selected: false
     },
-    'fish sandwich': {
+    'Glass Polishing': {
         price: 10,
         selected: false
     }

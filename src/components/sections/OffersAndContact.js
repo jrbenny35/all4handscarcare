@@ -40,41 +40,35 @@ export default function OffersAndContact() {
 
 const offersArray = [
     {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
+        text: 'Basic Interior/Exterior (New Client)',
+        // price: 225 + '+',
+        discountedPrice: 225 + '+',
         id: 1
     }, {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
+        text: 'Basic Exterior + Deep Clean Interior',
+        //price: 300 + '+',
+        discountedPrice: 300 + '+',
         id: 2
 
     },
     {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
+        text: 'Deep clean Interior/Exterior',
+        //price: 500,
+        discountedPrice: 375 + '+',
         id: 3
     },
     {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
+        text: '1 Yr Ceramic Coating (includes a deep interior/exterior clean)',
+        // price: 500,
+        discountedPrice: 500 + '+',
         id: 4
     }, {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
+        text: 'Paint Correction or Enhancement',
+        // price: 500,
+        discountedPrice: 600 + '+',
         id: 5
 
     },
-    {
-        text: 'this is deal text',
-        price: 500,
-        discountedPrice: 0,
-        id: 6
-    }
 ];
 
 
