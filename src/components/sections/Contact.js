@@ -281,7 +281,7 @@ export default function Contact({selectedOffers}) {
                 console.log(error);
                 let errState = {
                     error: true,
-                    messages: ['There was an error!', 'Try again later or give us a call at (555) 555-5555'],
+                    messages: ['There was an error!', 'Try again later or give us a call at 512-886-9114'],
                     display: true,
                     header: 'uh-oh, server error'
                 }
